@@ -6,21 +6,17 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import webgiay.controller.BaseController;
-import webgiay.dto.Cart;
 import webgiay.dto.Jw27Constants;
-import webgiay.dto.ProductCart;
 import webgiay.dto.SearchModel;
 import webgiay.model.Product;
 import webgiay.model.Product_image;
@@ -72,7 +68,7 @@ public class HomeController extends BaseController implements Jw27Constants {
 		}
 
 		// Lay danh sach sp can hien thi trong 1 trang
-		int firstIndex = (searchProduct.getCurrentPage() - 1) * SIZE_OF_INDEX; // vị trị dau 1 trang
+		int firstIndex = (searchProduct.getCurrentPage() - 1) * SIZE_OF_INDEX;
 		int index = firstIndex, count = 0;
 		while (index < allProducts.size() && count < SIZE_OF_INDEX) {
 			products.add(allProducts.get(index));
@@ -99,7 +95,6 @@ public class HomeController extends BaseController implements Jw27Constants {
 		Product product = productService.getById(productId);
 		model.addAttribute("product", product);
 		
-		// Lấy danh sách ảnh trong product_image
 		List<Product_image> product_images = product_imageService.getProductImagesByProductIdImages(productId);
 		model.addAttribute("productImages", product_images);		
 		return "frontend/product-detail";

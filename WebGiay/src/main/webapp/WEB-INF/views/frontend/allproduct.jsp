@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
+<!-- directive của JSTL -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,28 +68,28 @@
                                                 <label for="filter-giay-bong-ro" data-filter="giày bóng rổ">
                                                     <input type="checkbox" id="filter-giay-bong-ro" data-text="Giày bóng rổ">
                                                     <i class="fa"></i>
-                                                    Giày bóng rổ
+                                                    Giày Nam
                                                 </label>
                                             </li>
                                             <li class="filter-item filter-item--check-box filter-item--green">
                                                 <label for="filter-giay-chay-bo" data-filter="giày chạy bộ">
                                                     <input type="checkbox" id="filter-giay-chay-bo" data-text="Giày chạy bộ">
                                                     <i class="fa"></i>
-                                                    Giày chạy bộ
+                                                    Giày Nữ
                                                 </label>
                                             </li>
                                             <li class="filter-item filter-item--check-box filter-item--green">
                                                 <label for="filter-giay-nam" data-filter="giày nam">
                                                     <input type="checkbox" id="filter-giay-nam" data-text="Giày nam">
                                                     <i class="fa"></i>
-                                                    Giày nam
+                                                    Giày Trẻ Em
                                                 </label>
                                             </li>
                                             <li class="filter-item filter-item--check-box filter-item--green">
                                                 <label for="filter-thoi-trang" data-filter="thời trang">
                                                     <input type="checkbox" id="filter-thoi-trang" data-text="Thời trang">
                                                     <i class="fa"></i>
-                                                    Thời trang
+                                                    Giày Nội Địa
                                                 </label>
                                             </li>
                                         </ul>
@@ -123,15 +129,7 @@
                                                         <span class="span-tag">37</span>
                                                     </label>
                                                 </span>
-                                            </li>
-                                            <li class="filter-item filter-item--check-box filter-item--green">
-                                                <span>
-                                                    <label for="filter-37-5">
-                                                        <input type="checkbox" id="filter-37-5" data-text="37.5" data-group="tag1" value="(37.5)">
-                                                        <span class="span-tag">37.5</span>
-                                                    </label>
-                                                </span>
-                                            </li>
+                                            </li>                                           
                                             <li class="filter-item filter-item--check-box filter-item--green">
                                                 <span>
                                                     <label for="filter-38">
@@ -174,25 +172,9 @@
                                             </li>
                                             <li class="filter-item filter-item--check-box filter-item--green">
                                                 <span>
-                                                    <label for="filter-42-5">
-                                                        <input type="checkbox" id="filter-42-5" data-text="42.5" data-group="tag1" value="(42.5)">
-                                                        <span class="span-tag">42.5</span>
-                                                    </label>
-                                                </span>
-                                            </li>
-                                            <li class="filter-item filter-item--check-box filter-item--green">
-                                                <span>
                                                     <label for="filter-43">
                                                         <input type="checkbox" id="filter-43" data-text="43" data-group="tag1" value="(43)">
                                                         <span class="span-tag">43</span>
-                                                    </label>
-                                                </span>
-                                            </li>
-                                            <li class="filter-item filter-item--check-box filter-item--green">
-                                                <span>
-                                                    <label for="filter-43-5">
-                                                        <input type="checkbox" id="filter-43-5" data-text="43.5" data-group="tag1" value="(43.5)">
-                                                        <span class="span-tag">43.5</span>
                                                     </label>
                                                 </span>
                                             </li>
@@ -206,25 +188,9 @@
                                             </li>
                                             <li class="filter-item filter-item--check-box filter-item--green">
                                                 <span>
-                                                    <label for="filter-44-5">
-                                                        <input type="checkbox" id="filter-44-5" data-text="44" data-group="tag1" value="(44)">
-                                                        <span class="span-tag">44.5</span>
-                                                    </label>
-                                                </span>
-                                            </li>
-                                            <li class="filter-item filter-item--check-box filter-item--green">
-                                                <span>
                                                     <label for="filter-45">
                                                         <input type="checkbox" id="filter-45" data-text="45" data-group="tag1" value="(45)">
                                                         <span class="span-tag">45</span>
-                                                    </label>
-                                                </span>
-                                            </li>
-                                            <li class="filter-item filter-item--check-box filter-item--green">
-                                                <span>
-                                                    <label for="filter-45-5">
-                                                        <input type="checkbox" id="filter-45-5" data-text="45.5" data-group="tag1" value="(45.5)">
-                                                        <span class="span-tag">45.5</span>
                                                     </label>
                                                 </span>
                                             </li>
@@ -260,15 +226,6 @@
                                                     </label>
                                                 </span>
                                             </li>
-                                            <li class="filter-item filter-item--check-box filter-item--green">
-                                                <span>
-                                                    <label for="filter-unisex">
-                                                        <input type="checkbox" id="filter-unisex" value="Unisex" data-text="Unisex">
-                                                        <i class="fa"></i>
-                                                        Unisex
-                                                    </label>
-                                                </span>
-                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -288,7 +245,7 @@
                                                     <label for="filter-duoi-1-000-000d">
                                                         <input type="checkbox" id="filter-duoi-1-000-000d" data-text="Duoi-1000000">
                                                         <i class="fa"></i>
-                                                        Giá dưới 1.000.000đ
+                                                        Giá dưới 500.000đ
                                                     </label>
                                                 </span>
                                             </li>
@@ -297,7 +254,7 @@
                                                     <label for="filter-1-000-000d-3-000-000d">
                                                         <input type="checkbox" id="filter-1-000-000d-3-000-000d" data-text="1.000.000đ - 3.000.000đ">
                                                         <i class="fa"></i>
-                                                        1.000.000đ - 3.000.000đ
+                                                        500.000đ - 1.000.000đ
                                                     </label>
                                                 </span>
                                             </li>
@@ -306,25 +263,7 @@
                                                     <label for="filter-3-000-000d-5-000-000d">
                                                         <input type="checkbox" id="filter-3-000-000d-5-000-000d" data-text="3.000.000đ - 5.000.000đ">
                                                         <i class="fa"></i>
-                                                        3.000.000đ - 5.000.000đ
-                                                    </label>
-                                                </span>
-                                            </li>
-                                            <li class="filter-item filter-item--check-box filter-item--green">
-                                                <span>
-                                                    <label for="checkPrice">
-                                                        <input type="checkbox" id="checkPrice" data-text="5.000.000đ - 10.000.000đ">
-                                                        <i class="fa"></i>
-                                                        5.000.000đ - 10.000.000đ
-                                                    </label>
-                                                </span>
-                                            </li>
-                                            <li class="filter-item filter-item--check-box filter-item--green">
-                                                <span>
-                                                    <label for="checkPrice">
-                                                        <input type="checkbox" id="filter-tren-10-000-000d" data-text="Tren-10000000">
-                                                        <i class="fa"></i>
-                                                        Giá trên 10.000.000đ
+                                                        1.000.000đ - 1.500.000đ
                                                     </label>
                                                 </span>
                                             </li>
@@ -338,8 +277,9 @@
                 <div class="main_container collection col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="category-products products category-products-grids clearfix">
                         <div class="products-view products-view-grid row">
+                        <c:forEach items="${products }" var="product">
                             <div class=" mb-3 col-lg-4 col-md-4 col-sm-6 col-6 product-col">
-                                <a href="">
+                                <a href="${classpath }/product-detail/${product.id}">
                                     <div class="card">
                                         <div class="btn-action">
                                             <a href="" title="Sản phẩm yêu thích">
@@ -348,6 +288,7 @@
                                                 </svg>
                                             </a>
                                             <div class="action-cart">
+                                            <a onclick="addToCart(${product.id}, 1, '${product.name }')">
                                                 <button title="Thêm vào giỏ hàng">
                                                     <svg class="action-icon-cart" xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
                                                         <circle cx="9" cy="15.7368" r="1.26316" fill="white"></circle>
@@ -361,18 +302,19 @@
                                             </div>
                                         </div>
                                         <div class="images">
-                                            <img src="${classpath }/frontend/img/sp1.jpg" class="card-img-top card-img" alt="...">
+                                            <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="...">
                                         </div>
                                         <div class="card-body">
-                                          <h3 class="card-title"><a href="">Nike Blazer x sacai x KAWS</a></h3>
+                                          <h3 class="card-title"><a href="${classpath }/product-detail/${product.id}">${product.name }</a></h3>
                                           <!-- <span class="brand">Nike</span> -->
                                           <div class="bottom-action">
-                                            <div class="price-box">4.600.000đ</div>
+                                            <div class="price-box">${product.price }</div>
                                           </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
+                            </c:forEach>
                         </div>
                         <div class="row ">
                             <div class="col-lg-12 col-sm-12 col-12 margin-top-20 fix-pag">
@@ -405,5 +347,70 @@
     <script src="${classpath }/frontend/bootstrap/popper.min.js"></script>
     <script src="${classpath }/frontend/bootstrap/bootstrap.min.js"></script>
     <script src="${classpath }/frontend/js/index.js"></script>
+    
+    <!-- Add to cart -->
+	<script type="text/javascript">
+		addToCart = function(_productId, _quantity, _productName) {		
+			//alert("Thêm "  + _quantity + " sản phẩm '" + _productName + "' vào giỏ hàng ");
+			let data = {
+				productId: _productId, //lay theo id
+				quantity: _quantity,
+				productName: _productName,
+			};
+				
+			//$ === jQuery
+			jQuery.ajax({
+				url : "/add-to-cart",
+				type : "POST",
+				contentType: "application/json",
+				data : JSON.stringify(data),
+				dataType : "json", //Kieu du lieu tra ve tu controller la json
+				
+				success : function(jsonResult) {
+					alert(jsonResult.code + ": " + jsonResult.message); 
+					let totalProducts = jsonResult.totalCartProducts;
+					$("#totalCartProductsId").html(totalProducts);
+				},
+				
+				error : function(jqXhr, textStatus, errorMessage) {
+					alert(jsonResult.code + ': Đã có lỗi xay ra...!')
+				},
+			});
+		}
+	</script>
+
+	<!-- Sort Select -->
+	<script>
+	$(document).ready(function() {
+    	$('#sortOption').change(function() {
+        	$('#productSearchForm').submit();
+    	});
+	});
+	</script>
+
+	<!-- pagination -->
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			
+			//Dat gia tri cua category ung voi dieu kien search truoc do
+			/* $("#keyword").val(${searchModel.keyword}); */
+			
+			/* $("#sortOption").val(${searchModel.sortOption});
+					
+			 $("#paging").pagination("destroy"); // Xóa phân trang cũ */
+			$("#paging").pagination({
+				currentPage: ${searchModel.currentPage}, //Trang hien tai
+				items: ${searchModel.totalItems}, //Tong so san pham (total products)
+				itemsOnPage: ${searchModel.sizeOfPage}, // số sản phẩm trên 1 trang
+				cssStyle: 'light-theme',
+				onPageClick: function(pageNumber, event) {
+					event.preventDefault();
+					$('#currentPage').val(pageNumber);
+					$('#btnSearch').trigger('click');
+				},
+			});
+		});
+	</script>
+    
 </body>
 </html>

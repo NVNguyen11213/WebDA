@@ -32,12 +32,11 @@ public class ListProductController extends BaseController implements Jw27Constan
 	private CategoryService categoryService;
 
 
-	@RequestMapping(value = "/product", method = RequestMethod.GET)
+	@RequestMapping(value = "/allproduct", method = RequestMethod.GET)
 	public String list(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {
 		SearchModel searchModel = new SearchModel();
 
-		// Tìm theo key
 		searchModel.setKeyword(null);
 		String keyword = request.getParameter("keyword");
 		if (!StringUtils.isEmpty(keyword)) {
@@ -56,14 +55,12 @@ public class ListProductController extends BaseController implements Jw27Constan
 			searchModel.setPriceCheck(Integer.parseInt(priceCheck));
 		}
 		
-		//Sắp xếp theo Option
 		searchModel.setSortOption(null);
 		String sortOption = request.getParameter("sortOption");
 		if (!StringUtils.isEmpty(sortOption)) {
 			searchModel.setSortOption(sortOption);
 		}
 		
-        // Bắt đầu phân trang
         if (!StringUtils.isEmpty(request.getParameter("currentPage"))) {
 			searchModel.setCurrentPage(Integer.parseInt(request.getParameter("currentPage")));
 		} else {
@@ -73,7 +70,6 @@ public class ListProductController extends BaseController implements Jw27Constan
         List<Product> allProducts = productService.searchProductInHome(searchModel);
         List<Product> products = new ArrayList<Product>();
         
-        //Tổng số trang theo tìm kiếm
         int totalPages = allProducts.size() / SIZE_OF_PRODUCT;
         if (allProducts.size() % SIZE_OF_PRODUCT > 0) {
 			totalPages++;
@@ -83,7 +79,6 @@ public class ListProductController extends BaseController implements Jw27Constan
 			searchModel.setCurrentPage(1);
 		}
         
-        // Lấy danh sách sp cần hiển thị trong 1 trang
         int firstIndex = (searchModel.getCurrentPage() -1 ) * SIZE_OF_PRODUCT;
         int index = firstIndex, count = 0;
         while (index < allProducts.size() && count < SIZE_OF_PRODUCT) {
@@ -92,11 +87,9 @@ public class ListProductController extends BaseController implements Jw27Constan
 			count++;
 		}
         
-        // Phân trang
         searchModel.setSizeOfPage(SIZE_OF_PRODUCT);
         searchModel.setTotalItems(allProducts.size());
 
-		// Truy�?n danh sách danh mục sản phẩm vào model
 		List<Category> categories = categoryService.findAll();
 		model.addAttribute("categories", categories);
 		

@@ -57,7 +57,7 @@ public class ProductController extends BaseController implements Jw27Constants {
 		SearchModel productSearch = new SearchModel();
 		// Tim theo status
 		productSearch.setStatus(2); // input: ALL
-		String status = request.getParameter("status"); // lấy value từ view
+		String status = request.getParameter("status");
 		if (!StringUtils.isEmpty(status)) { // Neu co chon status
 			productSearch.setStatus(Integer.parseInt(status));
 		}
@@ -111,7 +111,7 @@ public class ProductController extends BaseController implements Jw27Constants {
 		}
 
 		// Lay danh sach sp can hien thi trong 1 trang
-		int firstIndex = (productSearch.getCurrentPage() - 1) * SIZE_OF_PAGE; // vị trị dau 1 trang
+		int firstIndex = (productSearch.getCurrentPage() - 1) * SIZE_OF_PAGE; 
 		int index = firstIndex, count = 0;
 		while (index < allProducts.size() && count < SIZE_OF_PAGE) {
 			products.add(allProducts.get(index));
@@ -134,7 +134,6 @@ public class ProductController extends BaseController implements Jw27Constants {
 	}
 
 	@RequestMapping(value = "add", method = RequestMethod.GET)
-	// Cách đẩy 1 dữ liệu sang view
 	public String add(final Model model) {
 
 		List<User> users = userService.findAll();
@@ -155,7 +154,6 @@ public class ProductController extends BaseController implements Jw27Constants {
 	public String productAddSave(final Model model, @ModelAttribute("product") Product product,
 			@RequestParam("avatarFile") MultipartFile avatarFile,
 			@RequestParam("imageFiles") MultipartFile[] imageFiles) throws IOException {
-		// Lấy danh sách product từ tbl_product trong DB
 		productService.saveAddProduct(product, avatarFile, imageFiles);
 
 		return "redirect:/admin/product/add";
@@ -163,7 +161,6 @@ public class ProductController extends BaseController implements Jw27Constants {
 
 	// Viet Action cua edit product
 	@RequestMapping(value = "edit/{productId}", method = RequestMethod.GET)
-	// Cách đẩy 1 dữ liệu sang view
 	public String edit(final Model model, @PathVariable("productId") int productId) {
 
 		List<User> users = userService.findAll();
@@ -172,7 +169,6 @@ public class ProductController extends BaseController implements Jw27Constants {
 		List<Category> categories = categoryService.findAll();
 		model.addAttribute("categories", categories);
 
-		// Lấy product trong DB bằng Id
 		Product product = productService.getById(productId);
 		product.setUpdateDate(new Date());
 		model.addAttribute("product", product);
@@ -181,7 +177,6 @@ public class ProductController extends BaseController implements Jw27Constants {
 
 	// SAVE EDIT Product
 	@RequestMapping(value = "edit-save", method = RequestMethod.POST)
-	// Cách đẩy 1 dữ liệu sang view
 	public String editSave(final Model model, @ModelAttribute("product") Product product,
 			@RequestParam("avatarFile") MultipartFile avatarFile,
 			@RequestParam("imageFiles") MultipartFile[] imageFiles) throws IOException {
@@ -190,23 +185,10 @@ public class ProductController extends BaseController implements Jw27Constants {
 		return "redirect:/admin/product/list";
 	}
 
-	// DELETE Product
-//	@RequestMapping(value = "delete/{productId}", method = RequestMethod.GET)
-//	//Cách đẩy 1 dữ liệu sang view
-//	public String delete(final Model model,
-//				@PathVariable("productId") int productId) {
-//					
-//		// Lấy product trong DB
-//		Product product = productService.getById(productId);
-//		productService.deleteProduct(product);
-//		return "redirect:/admin/product/list";
-//	}
 
 	// TH: inactive
 	@RequestMapping(value = "delete/{productId}", method = RequestMethod.GET)
-	// Cách đẩy 1 dữ liệu sang view
 	public String delete(final Model model, @PathVariable("productId") int productId) {
-		// Lấy category trong DB bằng Id
 		Product product = productService.getById(productId);
 		product.setStatus(false);
 		// productService.inactiveProduct(product);

@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
+<!-- directive của JSTL -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,16 +29,16 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="${classpath }/frontend/img/slider1.jpg" class="d-block w-100" alt="...">
+                <img src="${classpath }/frontend/img/slider1a.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="${classpath }/frontend/img/slider2.jpg" class="d-block w-100" alt="...">
+                <img src="${classpath }/frontend/img/slider1b.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="${classpath }/frontend/img/slider3.jpg" class="d-block w-100" alt="...">
+                <img src="${classpath }/frontend/img/slider1c.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="${classpath }/frontend/img/slider4.jpg" class="d-block w-100" alt="...">
+                <img src="${classpath }/frontend/img/slider1d.jpg" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -221,8 +227,9 @@
                     </div>
                     <div class="block-product">
                         <div class="row">
+                        <c:forEach items="${products }" var="product">
                             <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                                <a href="">
+                                <a href="${classpath }/product-detail/${product.id}">
                                     <div class="card">
                                         <div class="btn-action">
                                             <a href="" title="Sản phẩm yêu thích">
@@ -231,6 +238,7 @@
                                                 </svg>
                                             </a>
                                             <div class="action-cart">
+                                            <a onclick="addToCart(${product.id}, 1, '${product.name }')">
                                                 <button title="Thêm vào giỏ hàng">
                                                     <svg class="action-icon-cart" xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
                                                         <circle cx="9" cy="15.7368" r="1.26316" fill="white"></circle>
@@ -244,20 +252,21 @@
                                             </div>
                                         </div>
                                         <div class="images">
-                                            <img src="${classpath }/frontend/img/sp1.jpg" class="card-img-top card-img" alt="...">
+                                            <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="...">
                                         </div>
                                         <div class="card-body">
-                                          <h3 class="card-title"><a href="">Nike Blazer x sacai x KAWS</a></h3>
+                                          <h3 class="card-title"><a href="${classpath }/product-detail/${product.id}">${product.name }</a></h3>
                                           <!-- <span class="brand">Niken</span> -->
                                           <div class="bottom-action">
-                                            <div class="price-box">5.000.000đ</div>
+                                            <div class="price-box">${product.price }</div>
                                           </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
+                            </c:forEach>
                         <div class="view-more">
-                            <a href="" title="Xem tất cả">Xem tất cả</a>
+                            <a href="${classpath }/allproduct" title="Xem tất cả">Xem tất cả</a>
                         </div>
                     </div>
                 </div>
@@ -269,11 +278,6 @@
                     <div class="block-title">
                         <h2><a href="" title="Sản phẩm mới">Sản phẩm bán chạy</a></h2>
                         <p class="title-des">Các sản phẩm bán chạy tại cửa hàng</p>
-                    </div>
-                    <div class="banner-product">
-                        <a href="" title="Sản phẩm bán chạy">
-                            <img src="${classpath }/frontend/img/bigbanner.jpg" alt="">
-                        </a>
                     </div>
                     <div class="block-product">
                         <div class="row">
@@ -447,5 +451,38 @@
     <script src="${classpath }/frontend/bootstrap/popper.min.js"></script>
     <script src="${classpath }/frontend/bootstrap/bootstrap.min.js"></script>
     <script src="${classpath }/frontend/js/index.js"></script>
+    
+
+	<!-- Add to cart -->
+	<script type="text/javascript">
+		addToCart = function(_productId, _quantity, _productName) {		
+			//alert("Thêm "  + _quantity + " sản phẩm '" + _productName + "' vào giỏ hàng ");
+			let data = {
+				productId: _productId, //lay theo id
+				quantity: _quantity,
+				productName:_productName,
+			};
+				
+			//$ === jQuery
+			jQuery.ajax({
+				url : "/add-to-cart",
+				type : "POST",
+				contentType: "application/json",
+				data : JSON.stringify(data),
+				dataType : "json", //Kieu du lieu tra ve tu controller la json
+				
+				success : function(jsonResult) {
+					alert(jsonResult.code + ": " + jsonResult.message); 
+					let totalProducts = jsonResult.totalCartProducts;
+					$("#totalCartProductsId").html(totalProducts);
+				},
+				
+				error : function(jqXhr, textStatus, errorMessage) {
+					alert(jsonResult.code + ': Đã có lỗi xay ra...!')
+				},
+			});
+		}
+	</script>
+    
 </body>
 </html>

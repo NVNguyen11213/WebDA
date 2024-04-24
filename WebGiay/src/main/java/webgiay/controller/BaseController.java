@@ -15,7 +15,7 @@ import webgiay.model.User;
 public class BaseController {
 	@ModelAttribute("title")
 	public String projectTitle() {
-		return "Cara Shop";
+		return "THUONGDINH Shop";
 	}
 
 	@ModelAttribute("totalCartProducts")
