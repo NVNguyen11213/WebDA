@@ -7,10 +7,8 @@ import java.util.List;
 
 public class Cart {
 
-	//Danh sách các sản phẩm trong gi�? hàng
 	List<ProductCart> productCarts = new ArrayList<ProductCart>();
 	
-	//Tinh tổng số sản phẩm trong gi�? hàng
 	public BigInteger totalCartProduct() {
 		BigInteger total = BigInteger.ZERO;
 		for (ProductCart productCart : productCarts) {
@@ -19,7 +17,6 @@ public class Cart {
 		return total;
 	}
 	
-	//Tính tổng số ti�?n phải trả trong gi�? hàng
 	public BigDecimal totalCartPrice() {
 		BigDecimal total = BigDecimal.ZERO;
 		for (ProductCart productCart : productCarts) {
@@ -28,7 +25,6 @@ public class Cart {
 		return total;
 	}
 	
-	//Tìm sản phẩm trong gi�? hàng theo id
 	public int findProductById(int id) {
 		for (int index = 0; index < productCarts.size(); index++) {
 			if (productCarts.get(index).getProductId() == id) {

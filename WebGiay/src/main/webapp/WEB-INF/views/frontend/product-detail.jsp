@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
+<!-- directive của JSTL -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,69 +56,23 @@
                             </div>
                             <div class="swiper-container gallery-top margin-bottom-10" id="lightgallery">
                                 <div class="swiper-wrapper">
-                                    <a href="" class="swiper-slide 0" data-hash="0" title="Bấm vào để xem thư viện ảnh GIÀY Ultraboost 4.0 DNA">
-                                        <img class="img-responsive mx-auto d-block lazy loading"  width="340px" height="340px" src="${classpath }/frontend/images/sp-trang-5-1.webp" alt="">
+                                <c:forEach items="${productImages }" var="productImage">
+                                    <a href="" class="swiper-slide 0" data-hash="0" title="">
+                                        <img class="img-responsive mx-auto d-block lazy loading"  width="340px" height="340px" src="${classpath }/FileUploads/${productImage.path }" width="100%" class="small-img"
+										alt="">
                                     </a>
-                                    <a href="" class="swiper-slide 1" data-hash="1" title="Bấm vào để xem thư viện ảnh GIÀY Ultraboost 4.0 DNA">
-                                        <img class="img-responsive mx-auto d-block lazy loading"  width="340px" height="340px" src="${classpath }/frontend/images/sp-trang-5-2.jpg" alt="">
-                                    </a>
-                                    <a href="" class="swiper-slide 2" data-hash="2" title="Bấm vào để xem thư viện ảnh GIÀY Ultraboost 4.0 DNA">
-                                        <img class="img-responsive mx-auto d-block lazy loading" width="340px" height="340px" src="${classpath }/frontend/images/sp-trang-5-3.webp" alt="">
-                                    </a>
-                                    <a href="" class="swiper-slide 3" data-hash="3" title="Bấm vào để xem thư viện ảnh GIÀY Ultraboost 4.0 DNA">
-                                        <img class="img-responsive mx-auto d-block lazy loading"  width="340px" height="340px" src="${classpath }/frontend/images/sp-trang-5-4.webp" alt="">
-                                    </a>
-                                    <a href="" class="swiper-slide 4" data-hash="4" title="Bấm vào để xem thư viện ảnh GIÀY Ultraboost 4.0 DNA">
-                                        <img class="img-responsive mx-auto d-block lazy loading"  width="340px" height="340px" src="${classpath }/frontend/images/sp-trang-5-5.webp" alt="">
-                                    </a>
-                                    <a href="" class="swiper-slide 5" data-hash="5" title="Bấm vào để xem thư viện ảnh GIÀY Ultraboost 4.0 DNA">
-                                        <img class="img-responsive mx-auto d-block lazy loading"  width="340px" height="340px" src="${classpath }/frontend/images/sp-trang-5-6.webp" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-container gallery-thumbs swiper-container-initialized swiper-container-vertical swiper-container-pointer-events">
-                                <div class="swiper-wrapper scroll" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-                                    <div class="swiper-slide swiper-slide-visible" data-hash="0" style="height: 86px; margin-bottom: 10px;">
-                                        <img class="lazy loading" src="${classpath }/frontend/images/sp-trang-5-1.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-visible" data-hash="1" style="height: 86px; margin-bottom: 10px;">
-                                        <img class="lazy loading" src="${classpath }/frontend/images/sp-trang-5-2.jpg" alt="">
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-visible" data-hash="2" style="height: 86px; margin-bottom: 10px;">
-                                        <img class="lazy loading" src="${classpath }/frontend/images/sp-trang-5-3.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-visible" data-hash="3" style="height: 86px; margin-bottom: 10px;">
-                                        <img class="lazy loading" src="${classpath }/frontend/images/sp-trang-5-4.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-visible" data-hash="4" style="height: 86px; margin-bottom: 10px;">
-                                        <img class="lazy loading" src="${classpath }/frontend/images/sp-trang-5-5.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide swiper-slide-visible" data-hash="5" style="height: 86px; margin-bottom: 10px;">
-                                        <img class="lazy loading" src="${classpath }/frontend/images/sp-trang-5-6.webp" alt="">
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
                     </div>  
                     <div class="col-12 col-md-12 col-lg-5 details-pro">
                         <div class="wrapright-content">
-                            <h1 class="title-head">GIÀY Ultraboost 4.0 DNA</h1>
-                            <div class="product-top clearfix">
-                                <div class="sku-product clearfix">
-                                    <span itemprop="brand">
-                                        Thương hiệu
-                                        <strong>Adidas</strong>
-                                    </span>
-                                    <span class="variant-sku" content="Ultraboost4.0">
-                                        Mã
-                                        <strong>Ultraboost4.0</strong>
-                                    </span>
-                                </div>
-                            </div>
+                            <h1 class="title-head">${product.name }</h1>
                             <div class="group-power">
                                 <div class="price-box clearfix">
                                     <div class="special-price">
-                                        <span class="price product-price">4.500.000₫</span>
+                                        <span class="price product-price">${product.price }</span>
                                     </div>
                                 </div>
                             </div>
@@ -178,17 +137,6 @@
                                    </div>
                                 </div>
                             </form>
-                            <div class="size-guide-box ">
-                                <a href="" title="Xem hướng dẫn chọn size">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
-                                        <path d="M17 6V15.14C17 16.7969 15.6569 18.14 14 18.14H4C2.34315 18.14 1 16.7969 1 15.14V13.855V11.7125M12.2305 1H4C2.34315 1 1 2.34314 1 4V5.285V7.4275" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"></path>
-                                        <path d="M12.5595 1.09666L16.9033 5.44046C17.1098 5.64694 16.9636 6 16.6716 6H12.3278C12.1467 6 12 5.85325 12 5.67223V1.32843C12 1.03642 12.3531 0.890174 12.5595 1.09666Z" stroke="#292D32" stroke-width="1.5"></path>
-                                        <line x1="6.75" y1="13.25" x2="11.25" y2="13.25" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"></line>
-                                        <line x1="5.75" y1="10.25" x2="12.25" y2="10.25" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"></line>
-                                    </svg>
-                                    Xem hướng dẫn chọn size
-                                </a>
-                            </div>
                             <div class="product-summary">
                                 <div class="rte">
                                     <ul>
@@ -214,9 +162,6 @@
                             <ul class="tabs tabs-title clearfix">
                                 <li class="tab-link current" data-tab="tab-1">
                                     <span>Thông tin chi tiết</span>
-                                </li>
-                                <li class="tab-link" data-tab="tab-2">
-                                    <span>Thương hiệu</span>
                                 </li>
                             </ul>
                             <div class="tab-1 tab-content content_extab current">
@@ -246,5 +191,54 @@
     <script src="${classpath }/frontend/slick/jquery-3.7.1.min.js"></script>
     <script src="${classpath }/frontend/slick/slick.js"></script> 
     <script src="${classpath }/frontend/js/index.js"></script>
+    
+    <script>
+    var MainImg = document.getElementById("MainImg");
+    var smalling = document.getElementsByClassName("small-img");
+
+    smalling[0].onclick = function () {
+        MainImg.src = smalling[0].src;
+    }
+    smalling[1].onclick = function () {
+        MainImg.src = smalling[1].src;
+    }
+    smalling[2].onclick = function () {
+        MainImg.src = smalling[2].src;
+    }
+    smalling[3].onclick = function () {
+        MainImg.src = smalling[3].src;
+    }
+</script>
+	<!-- Add to cart -->
+	<script type="text/javascript">
+		addToCart = function(_productId, _productName) {
+			//alert("Thêm "  + _quantity + " sản phẩm '" + _productName + "' vào giỏ hàng ");
+			let data = {
+				productId : _productId, //lay theo id
+				quantity : jQuery("#quantity").val(),
+				productName: _productName,
+			};
+
+			//$ === jQuery
+			jQuery.ajax({
+				url : "/add-to-cart",
+				type : "POST",
+				contentType : "application/json",
+				data : JSON.stringify(data),
+				dataType : "json", //Kieu du lieu tra ve tu controller la json
+
+				success : function(jsonResult) {
+					alert(jsonResult.code + ": " + jsonResult.message);
+					let totalProducts = jsonResult.totalCartProducts;
+					$("#totalCartProductsId").html(totalProducts);
+				},
+
+				error : function(jqXhr, textStatus, errorMessage) {
+					alert(jsonResult.code + ': Đã có lỗi xay ra...!')
+				},
+			});
+		}
+	</script>
+    
 </body>
 </html>

@@ -280,37 +280,9 @@
 	                                            </tr>
 	                                            </c:forEach>
 	                                        </tbody>
-	                                        <tfoot>
-	                                            <tr align="center">
-	                                                <th scope="col">No.</th>
-	                                                <th scope="col">Id</th>
-	                                                <th scope="col">Category</th>
-	                                                <th scope="col">Name</th>
-	                                                <th scope="col">Price</th>
-	                                                <th scope="col">Sale price</th>
-	                                                <th scope="col">Avatar</th>
-	                                                <th scope="col">Description</th>
-	                                                <th scope="col">Details</th>
-	                                                <th scope="col">Create by</th>
-	                                                <th scope="col">Update by</th>
-	                                                <th scope="col">Create date</th>
-	                                                <th scope="col">Update date</th>
-	                                                <th scope="col">Status</th>
-	                                                <th scope="col">Is hot</th>
-	                                                <th scope="col">Seo</th>
-	                                                <th scope="col">Actions</th>
-	                                            </tr>
-	                                        </tfoot>
 	                                    </table>
 	                                    
 	                                    <div class="row">
-	                        		 		<div class="col-md-6">
-												<div class="form-group mb-4">
-	                                        		<a href="${classpath }/admin/product/add" role="button" 
-	                                        			class="btn btn-primary">Add new product</a>
-                                      			</div>
-	                                    	</div>
-											
 		                                    <div class="col-md-6">
 			                                    <div class="pagination float-right">
 													<div id="paging"></div>
