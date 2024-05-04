@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import webgiay.controller.BaseController;
+
 @Controller
-public class NewsController {
+public class NewsController extends BaseController{
 	@RequestMapping(value = "/news", method = RequestMethod.GET)
 	public String contact(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {

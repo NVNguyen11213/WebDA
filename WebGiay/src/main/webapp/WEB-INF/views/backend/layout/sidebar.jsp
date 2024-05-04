@@ -44,8 +44,8 @@
             </a>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-customer-contact.html">
-              <i class="align-middle" data-feather="message-circle"></i> <span class="align-middle">Customer contact</span>
+						<a class="sidebar-link" href="${classpath}/admin/news/list">
+              <i class="align-middle" data-feather="message-circle"></i> <span class="align-middle">News</span>
             </a>
 					</li>
 

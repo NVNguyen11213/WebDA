@@ -131,7 +131,7 @@
                                             </div>
                                         </div>
                                         <div class="btn-mua">
-                                            <button type="submit" data-role="addtocart" class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">Thêm vào giỏ</button>
+                                            <button type="submit" data-role="addToCart" class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">Thêm vào giỏ</button>
                                             <button type="button" class="btn btn-buy-now" data-id="56777157" data-qty="1">Mua ngay</button>
                                         </div>
                                    </div>

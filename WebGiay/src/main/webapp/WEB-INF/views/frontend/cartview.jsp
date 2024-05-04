@@ -215,5 +215,64 @@
     <script src="${classpath }/frontend/bootstrap/popper.min.js"></script>
     <script src="${classpath }/frontend/bootstrap/bootstrap.min.js"></script>
     <script src="${classpath }/frontend/js/index.js"></script>
+    
+    	<script type="text/javascript">
+		updateProductQuantity = function(_productId, _quantity) {
+			let data = {
+				productId : _productId, //lay theo id
+				quantity : _quantity
+			};
+
+			//$ === jQuery
+			jQuery.ajax({
+				url : "/update-product-quantity",
+				type : "POST",
+				contentType : "application/json",
+				data : JSON.stringify(data),
+				dataType : "json", //Kieu du lieu tra ve tu controller la json
+
+				success : function(jsonResult) {
+					let totalProducts = jsonResult.totalCartProducts; 
+					//Viet lai so luong sau khi bam nut -, +
+					$("#productQuantity_" + jsonResult.productId).html(jsonResult.newQuantity); 
+				},
+
+				error : function(jqXhr, textStatus, errorMessage) {
+					alert("An error occur");
+				}
+			});
+		}
+	</script>
+	
+		<script type="text/javascript">
+		function _placeOrder() {
+			//javascript object
+			let data = {				
+				txtName : jQuery("#txtName").val(),
+				txtEmail : jQuery("#txtEmail").val(), //Get by Id
+				txtMobile : jQuery("#txtMobile").val(),
+				txtAddress : jQuery("#txtAddress").val(),
+			};
+			
+			//$ === jQuery
+			jQuery.ajax({
+				url : "/place-order",
+				type : "POST",
+				contentType: "application/json",
+				data : JSON.stringify(data),
+				dataType : "json", //Kieu du lieu tra ve tu controller la json
+				
+				success : function(jsonResult) {
+					alert(jsonResult.code + ": " + jsonResult.message);
+					//$("#placeOrderSuccess").html(jsonResult.message);
+				},
+				
+				error : function(jqXhr, textStatus, errorMessage) {
+					alert("An error occur");
+				}
+			});
+		}
+	</script>
+    
 </body>
 </html>

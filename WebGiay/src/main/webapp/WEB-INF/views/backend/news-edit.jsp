@@ -41,61 +41,23 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">Edit User</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Edit News</h1>
 
 					<div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <sf:form class="form" action="${classpath }/admin/user/edit-save" method="post" modelAttribute="user" enctype="multipart/form-data">
+                                    <sf:form class="form" action="${classpath }/admin/news/edit-save" method="post" modelAttribute="news" enctype="multipart/form-data">
 	                        		 <div class="form-body">
 	                        		 
 	                        		 	<sf:hidden path="id"/> <!-- id > 0 => update -->
-	                        		 
+	                        		 	
 	                        			<div class="row">
-	                        		 		<div class="col-md-6">
-												<div class="form-group mb-4">
-			                                        <label for="username">User name</label>
-			                                        <sf:input path="username" type="text" class="form-control" id="username" name="username" placeholder="user name"></sf:input>
-                                        		</div>
-	                                    	</div>
 	                                    	
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="password">Password</label>
-			                                        <sf:input path="password" type="passward" class="form-control" id="password" name="password" placeholder="password"></sf:input>
-                                        		</div>
-	                                    	</div>
-										</div>
-										
-										<div class="row">
-	                        		 		<div class="col-md-6">
-												<div class="form-group mb-4">
-			                                        <label for="name">Full name</label>
-			                                        <sf:input path="name" type="text" class="form-control" id="name" name="name" placeholder="full name"></sf:input>
-                                        		</div>
-	                                    	</div>
-	                                    	
-	                        		 		<div class="col-md-6">
-												<div class="form-group mb-4">
-			                                        <label for="mobile">Mobile</label>
-			                                        <sf:input path="mobile" type="text" class="form-control" id="mobile" name="mobile" placeholder="mobile"></sf:input>
-                                        		</div>
-	                                    	</div>
-										</div>
-										
-										<div class="row">
-	                        		 		<div class="col-md-6">
-												<div class="form-group mb-4">
-			                                        <label for="email">Email</label>
-			                                        <sf:input path="email" type="text" class="form-control" id="email" name="email" placeholder="email"></sf:input>
-                                        		</div>
-	                                    	</div>
-	                                    	
-	                        		 		<div class="col-md-6">
-												<div class="form-group mb-4">
-			                                        <label for="address">Address</label>
-			                                        <sf:input path="address" type="text" class="form-control" id="address" name="address" placeholder="address"></sf:input>
+			                                        <label for="name">News name</label>
+			                                        <sf:input path="name" type="text" class="form-control" id="name" name="name" placeholder="news name"></sf:input>
                                         		</div>
 	                                    	</div>
 										</div>
@@ -104,7 +66,7 @@
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
 			                                        <label for="role">Create by</label>
-			                                        <sf:select path="userCreateUser.id" class="form-control" id="userCreateUser">
+			                                        <sf:select path="userCreateNews.id" class="form-control" id="userCreateNews">
 			                                            <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
 			                                        </sf:select>
                                         		</div>
@@ -113,13 +75,12 @@
 											<div class="col-md-6">
 												<div class="form-group mb-4">
 			                                        <label for="role">Update by</label>
-			                                        <sf:select path="userUpdateUser.id" class="form-control" id="userUpdateUser">
+			                                        <sf:select path="userUpdateNews.id" class="form-control" id="userUpdateNews">
 			                                            <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
 			                                        </sf:select>
                                         		</div>
 	                                    	</div>
 										</div>
-										
 										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
@@ -135,7 +96,7 @@
 			                                        <label for="updatedate">Update date</label>
 			                                       
 			                                        <sf:input path="updateDate" class="form-control" type="date" 
-			                                        			id="updateDate" name="updateDate" ></sf:input>
+			                                        			id="updateDate" name="updateDate"></sf:input>
                                         		</div>
 	                                    	</div>
 										</div>
@@ -151,7 +112,8 @@
 										</div>
 										
 										<div class="row">
-	                                    	<div class="col-md-6">
+	                                    	
+	                                    	<div class="col-md-10">
 												<div class="form-group mb-4">
 													<label for="status">&nbsp;&nbsp;&nbsp;&nbsp;</label>
 													<sf:checkbox path="status" class="form-check-input" id="status" name="status"></sf:checkbox>
@@ -161,13 +123,14 @@
 	                                    	
 										</div>
 										
+										
 										<div class="row">
 	                        		 		<div class="col-md-12">
-												<div class="form-group mb-4"> 
-			                                        <a href="${classpath }/admin/user/list" class="btn btn-secondary active" role="button" aria-pressed="true">
+												<div class="form-group mb-4">
+			                                        <a href="${classpath }/admin/news/list" class="btn btn-secondary active" role="button" aria-pressed="true">
 			                                        	Back to list
 			                                        </a>
-                                    				<button type="submit" class="btn btn-primary">Save user</button>
+                                    				<button type="submit" class="btn btn-primary">Save news</button>
                                         		</div>
 	                                    	</div>
 										</div>

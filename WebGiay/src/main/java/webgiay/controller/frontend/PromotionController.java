@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import webgiay.controller.BaseController;
+
 @Controller
-public class PromotionController {
+public class PromotionController extends BaseController{
 	@RequestMapping(value = "/Promotion", method = RequestMethod.GET)
 	public String contact(final Model model, final HttpServletRequest request, final HttpServletResponse response)
 			throws IOException {

@@ -47,7 +47,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">List Role</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">List News</h1>
 
 					<div class="container-fluid">
 						<!-- ============================================================== -->
@@ -58,52 +58,14 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-body">
-										<div class="row">
-											<!-- Column -->
-											<div class="col-md-6 col-lg-3 col-xlg-3">
-												<div class="card card-hover">
-													<div class="p-2 bg-primary text-center">
-														<h1 class="font-light text-white">${roleSearch.totalItems }</h1>
-														<h6 class="text-white">Total Roles</h6>
-													</div>
-												</div>
-											</div>
-											<!-- Column -->
-											<div class="col-md-6 col-lg-3 col-xlg-3">
-												<div class="card card-hover">
-													<div class="p-2 bg-info text-center">
-														<h1 class="font-light text-white">1,738</h1>
-														<h6 class="text-white">Responded</h6>
-													</div>
-												</div>
-											</div>
-											<!-- Column -->
-											<div class="col-md-6 col-lg-3 col-xlg-3">
-												<div class="card card-hover">
-													<div class="p-2 bg-success text-center">
-														<h1 class="font-light text-white">1100</h1>
-														<h6 class="text-white">Resolve</h6>
-													</div>
-												</div>
-											</div>
-											<!-- Column -->
-											<div class="col-md-6 col-lg-3 col-xlg-3">
-												<div class="card card-hover">
-													<div class="p-2 bg-danger text-center">
-														<h1 class="font-light text-white">964</h1>
-														<h6 class="text-white">Pending</h6>
-													</div>
-												</div>
-											</div>
-											<!-- Column -->
-										</div>
+										
 										<div class="table-responsive">
 
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group mb-4">
-														<a href="${classpath }/admin/role/add" role="button"
-															class="btn btn-primary">Add New Role</a>
+														<a href="${classpath }/admin/news/add" role="button"
+															class="btn btn-primary">Add New News</a>
 													</div>
 												</div>
 											</div>
@@ -124,23 +86,23 @@
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach var="role" items="${roles }" varStatus="loop">
+													<c:forEach var="role" items="${news }" varStatus="loop">
 														<tr>
 															<td>${loop.index + 1 }</td>
-															<td>${role.id }</td>
-															<td>${role.name }</td>
-															<td>${role.userCreateRole.username }</td>
-															<td>${role.userUpdateRole.username }</td>
-															<td><fmt:formatDate value="${role.createDate }"
+															<td>${news.id }</td>
+															<td>${news.name }</td>
+															<td>${news.userCreateRole.username }</td>
+															<td>${news.userUpdateRole.username }</td>
+															<td><fmt:formatDate value="${news.createDate }"
 																	pattern="dd-MM-yyyy" /></td>
-															<td><fmt:formatDate value="${role.updateDate }"
+															<td><fmt:formatDate value="${news.updateDate }"
 																	pattern="dd-MM-yyyy" /></td>
-															<td>${role.status }</td>
-															<td>${role.description }</td>
+															<td>${news.status }</td>
+															<td>${news.description }</td>
 															<td><a
-																href="${classpath }/admin/role/edit/${role.id }"
+																href="${classpath }/admin/news/edit/${news.id }"
 																role="button" class="btn btn-primary">Edit</a> <a
-																href="${classpath }/admin/role/delete/${role.id }"
+																href="${classpath }/admin/news/delete/${news.id }"
 																role="button" class="btn btn-secondary">Delete</a></td>
 														</tr>
 													</c:forEach>
@@ -173,12 +135,12 @@
 	<script type="text/javascript">
 		$( document ).ready(function() {
 			$("#paging").pagination({
-				currentPage: ${roleSearch.currentPage}, //Trang hien tai
-				items: ${roleSearch.totalItems}, //Tong so san pham (total products)
-				itemsOnPage: ${roleSearch.sizeOfPage},
+				currentPage: ${newsSearch.currentPage}, //Trang hien tai
+				items: ${newsSearch.totalItems}, 
+				itemsOnPage: ${newsSearch.sizeOfPage},
 				cssStyle: 'light-theme',
 				onPageClick: function(pageNumber, event) {
-					 window.location.href = "${classpath}/admin/role/list?currentPage=" + pageNumber;
+					 window.location.href = "${classpath}/admin/news/list?currentPage=" + pageNumber;
 				},
 			});
 		});
