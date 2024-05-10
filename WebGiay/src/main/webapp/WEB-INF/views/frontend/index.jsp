@@ -237,9 +237,9 @@
                                                     <path d="M1.30469 7.70401C0.413933 5.13899 1.5274 1.87444 3.97697 1.17489C5.3131 0.708524 7.09458 1.17487 7.98533 2.57397C8.87608 1.17487 10.6576 0.708524 11.9937 1.17489C14.6659 2.10763 15.5567 5.13899 14.666 7.70401C13.5525 11.6681 9.09877 14 7.98533 14C6.87189 13.7668 2.64081 11.9013 1.30469 7.70401Z" stroke="#949494" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                                 </svg>
                                             </a>
-                                            <div class="action-cart">
-                                            <a onclick="addToCart(${product.id}, 1, '${product.name }')">
+                                            <div class="action-cart">    
                                                 <button title="Thêm vào giỏ hàng">
+                                                <a onclick="addToCart(${product.id}, 1, '${product.name }')">
                                                     <svg class="action-icon-cart" xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
                                                         <circle cx="9" cy="15.7368" r="1.26316" fill="white"></circle>
                                                         <circle cx="14.0526" cy="15.7368" r="1.26316" fill="white"></circle>
@@ -248,8 +248,8 @@
                                                         <path d="M3.52632 8.5791L1 8.5791" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
                                                         <path d="M5.01003 3.94737L6.72226 11.6163C6.87534 12.3019 7.48373 12.7895 8.18622 12.7895H14.6659C15.3684 12.7895 15.9768 12.3019 16.1299 11.6163L17.4342 5.77422C17.6435 4.83706 16.9305 3.94737 15.9703 3.94737H14.6341H12.7895M5.01003 3.94737L4.50902 2.10616C4.33133 1.45315 3.73839 1 3.06164 1H1M5.01003 3.94737H8.21804H9.42105" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
                                                     </svg>
-                                                </button>
                                                 </a>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="images">
@@ -282,8 +282,9 @@
                     </div>
                     <div class="block-product">
                         <div class="row">
+                        <c:forEach items="${isHotProducts }" var="product">
                             <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                                <a href="">
+                                <a href="${classpath }/product-detail/${product.id}">
                                     <div class="card">
                                         <div class="btn-action">
                                             <a href="" title="Sản phẩm yêu thích">
@@ -291,8 +292,9 @@
                                                     <path d="M1.30469 7.70401C0.413933 5.13899 1.5274 1.87444 3.97697 1.17489C5.3131 0.708524 7.09458 1.17487 7.98533 2.57397C8.87608 1.17487 10.6576 0.708524 11.9937 1.17489C14.6659 2.10763 15.5567 5.13899 14.666 7.70401C13.5525 11.6681 9.09877 14 7.98533 14C6.87189 13.7668 2.64081 11.9013 1.30469 7.70401Z" stroke="#949494" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                                 </svg>
                                             </a>
-                                            <div class="action-cart">
+                                            <div class="action-cart">    
                                                 <button title="Thêm vào giỏ hàng">
+                                                <a onclick="addToCart(${product.id}, 1, '${product.name }')">
                                                     <svg class="action-icon-cart" xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
                                                         <circle cx="9" cy="15.7368" r="1.26316" fill="white"></circle>
                                                         <circle cx="14.0526" cy="15.7368" r="1.26316" fill="white"></circle>
@@ -301,23 +303,26 @@
                                                         <path d="M3.52632 8.5791L1 8.5791" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
                                                         <path d="M5.01003 3.94737L6.72226 11.6163C6.87534 12.3019 7.48373 12.7895 8.18622 12.7895H14.6659C15.3684 12.7895 15.9768 12.3019 16.1299 11.6163L17.4342 5.77422C17.6435 4.83706 16.9305 3.94737 15.9703 3.94737H14.6341H12.7895M5.01003 3.94737L4.50902 2.10616C4.33133 1.45315 3.73839 1 3.06164 1H1M5.01003 3.94737H8.21804H9.42105" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
                                                     </svg>
+                                                </a>
                                                 </button>
                                             </div>
                                         </div>
                                         <div class="images">
-                                            <img src="${classpath }/frontend/img/sp1.jpg" class="card-img-top card-img" alt="...">
+                                            <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="...">
                                         </div>
                                         <div class="card-body">
-                                          <h3 class="card-title"><a href="">Nike Blazer x sacai x KAWS</a></h3>
+                                          <h3 class="card-title"><a href="${classpath }/product-detail/${product.id}">${product.name }</a></h3>
                                           <!-- <span class="brand">Niken</span> -->
                                           <div class="bottom-action">
-                                            <div class="price-box">5.000.000đ</div>
+                                            <div class="price-box">${product.price }</div>
                                           </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                            </c:forEach>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
@@ -463,7 +468,6 @@
 				quantity: _quantity,
 				productName:_productName,
 			};
-				
 			//$ === jQuery
 			jQuery.ajax({
 				url : "/add-to-cart",
@@ -471,7 +475,7 @@
 				contentType: "application/json",
 				data : JSON.stringify(data),
 				dataType : "json", //Kieu du lieu tra ve tu controller la json
-				
+
 				success : function(jsonResult) {
 					alert(jsonResult.code + ": " + jsonResult.message); 
 					let totalProducts = jsonResult.totalCartProducts;
@@ -483,7 +487,6 @@
 				},
 			});
 		}
-	</script>
-    
+	</script> 
 </body>
 </html>

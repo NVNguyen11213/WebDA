@@ -1,5 +1,8 @@
 package webgiay.service;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -30,11 +33,11 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 
 	@Transactional
 	public SaleOrder saveOrder(SaleOrder saleOrder) {
-		// Kiểm tra và thiết lập giá trị cho trư�?ng user trước khi lưu
+		
 		if (saleOrder.getUser() == null && saleOrder.getUserCreateSaleOrder() != null) {
-			// Lấy thông tin ngư�?i dùng từ UserService (hoặc từ nguồn dữ liệu phù hợp)
+			
 			User user = userService.getById(saleOrder.getUserCreateSaleOrder().getId());
-			// Thiết lập giá trị user cho saleOrder
+			
 			saleOrder.setUser(user);
 		}
 		return super.saveOrUpdate(saleOrder);
@@ -81,4 +84,18 @@ public class SaleOrderService extends BaseService<SaleOrder> {
 
 		return super.executeNativeSql(sql);
 	}
+	public List<BigDecimal> getMoneyByMonths(int year) {
+	    List<BigDecimal> dashboardRevenue = new ArrayList<>();
+
+	    for (int i = 1; i <= 12; i++) {
+	        BigDecimal revenue = (BigDecimal) entityManager
+	            .createNativeQuery("SELECT COALESCE(SUM(total), 0) FROM tbl_sale_order WHERE status = 1 AND YEAR(create_date) = :year AND MONTH(create_date) = :month")
+	            .setParameter("year", year)
+	            .setParameter("month", i)
+	            .getSingleResult();
+	        dashboardRevenue.add(revenue);
+	    }
+	    return dashboardRevenue;
+	}
+
 }

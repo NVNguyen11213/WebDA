@@ -28,6 +28,10 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 	public List<Product> findAllActive() {
 		return super.executeNativeSql("SELECT * FROM tbl_product WHERE status=1");
 	}
+	
+	public List<Product> findAllActiveAndIsHot() {
+		return super.executeNativeSql("SELECT * FROM tbl_product WHERE status=1 AND is_hot = 1");
+	}
 
 	// Phương thức kiểm tra (1) file có được upload hay không?
 	public boolean isUploadFile(MultipartFile file) {
@@ -58,7 +62,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 			String path = FOLDER_UPLOAD + "Product/Avatar/" + avatarFile.getOriginalFilename();
 			File file = new File(path);
 			avatarFile.transferTo(file);
-			// Lưu đư�?ng dẫn vào bảng tbl_product
+			// Lưu đư�?ng dẫn vào bảng tbl_product
 			product.setAvatar("Product/Avatar/" + avatarFile.getOriginalFilename());
 		}
 
@@ -79,7 +83,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 					product_image.setStatus(Boolean.TRUE);
 					product_image.setCreateDate(new Date());
 
-					// Lưu đư�?ng dẫn ảnh sang bảng tbl_product_image
+					// Lưu đư�?ng dẫn ảnh sang bảng tbl_product_image
 					product.addRelationalProductImage(product_image);
 				}
 			}
@@ -106,9 +110,9 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 			path = FOLDER_UPLOAD + "Product/Avatar/" + avatarFile.getOriginalFilename();
 			file = new File(path);
 			avatarFile.transferTo(file);
-			// Lưu đư�?ng dẫn của avatar mới vào bảng tbl_product
+			// Lưu đư�?ng dẫn của avatar mới vào bảng tbl_product
 			product.setAvatar("Product/Avatar/" + avatarFile.getOriginalFilename());
-		} else { // Ngư�?i dùng không upload avatar file
+		} else { // Ngư�?i dùng không upload avatar file
 			// giữ nguyên avatar cũ
 			product.setAvatar(dbProduct.getAvatar());
 		}
@@ -123,14 +127,14 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 					File file = new File(path);
 					imageFile.transferTo(file);
 					
-					// Lưu đư�?ng dẫn vào tbl_product_image
+					// Lưu đư�?ng dẫn vào tbl_product_image
 					Product_image product_image = new Product_image();
 					product_image.setTitle(imageFile.getOriginalFilename());
 					product_image.setPath("Product/Image/" + imageFile.getOriginalFilename());
 					product_image.setStatus(Boolean.TRUE);
 					product_image.setCreateDate(new Date());
 
-					// Lưu (đối tượng product image) đư�?ng dẫn ảnh sang bảng tbl_product_image
+					// Lưu (đối tượng product image) đư�?ng dẫn ảnh sang bảng tbl_product_image
 					product.addRelationalProductImage(product_image);
 				}
 			}
@@ -185,7 +189,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 		String sql = "SELECT * FROM tbl_product p WHERE 1=1";
 
 		// Tim kiem voi status
-		if (productSearch.getStatus() != 2) { // Có ch�?n Active/Inactive
+		if (productSearch.getStatus() != 2) { // Có ch�?n Active/Inactive
 			sql += " AND p.status=" + productSearch.getStatus();
 		}
 
@@ -249,7 +253,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 			}
 		}
 		
-		// Sắp xếp sản phẩm theo tùy ch�?n
+		// Sắp xếp sản phẩm theo tùy ch�?n
 		if (searchModel.getSortOption() != null && !searchModel.getSortOption().isEmpty()) {
 			switch (searchModel.getSortOption()) {
 			case "nameASC": // Sắp xếp theo tên tăng dần
@@ -276,21 +280,21 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 //		// Tạo câu lệnh SQL
 //		StringBuilder sql = new StringBuilder("SELECT * FROM tbl_product p WHERE 1=1 AND p.status=1");
 //
-//		// Tạo danh sách các giá trị mức giá được ch�?n
+//		// Tạo danh sách các giá trị mức giá được ch�?n
 //		List<String> selectedPriceRanges = new ArrayList<>();
 //		for (String priceRange : priceRanges) {
 //			selectedPriceRanges.add(priceRange);
 //		}
 //
-//		// Thêm các đi�?u kiện vào câu lệnh SQL dựa trên các mức giá được ch�?n
+//		// Thêm các đi�?u kiện vào câu lệnh SQL dựa trên các mức giá được ch�?n
 //		for (String selectedPriceRange : selectedPriceRanges) {
 //			String[] priceRangeValues = selectedPriceRange.split("-");
 //			if (priceRangeValues.length == 2) {
-//				// Nếu mức giá là khoảng, thêm đi�?u kiện BETWEEN vào câu lệnh SQL
+//				// Nếu mức giá là khoảng, thêm đi�?u kiện BETWEEN vào câu lệnh SQL
 //				sql.append(" AND p.price BETWEEN ").append(priceRangeValues[0]).append(" AND ")
 //						.append(priceRangeValues[1]);
 //			} else if (priceRangeValues.length == 1) {
-//				// Nếu mức giá là một giá trị cụ thể, thêm đi�?u kiện = vào câu lệnh SQL
+//				// Nếu mức giá là một giá trị cụ thể, thêm đi�?u kiện = vào câu lệnh SQL
 //				sql.append(" AND p.price >= ").append(priceRangeValues[0]);
 //			}
 //		}

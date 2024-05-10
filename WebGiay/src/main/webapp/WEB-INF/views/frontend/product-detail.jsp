@@ -26,9 +26,9 @@
                 <div class="flex-col flex-grow medium-text-center">
                     <div class="is-large">
                         <div class="woocommerce-breadcrumb breadcrumbs uppercase">
-                            <a href="">Trang chủ</a>
+                            <a href="${classpath }/index">Trang chủ</a>
                             <span class="divider">/</span>
-                            Liên hệ 
+                            Chi tiết sản phẩm 
                         </div>
                     </div>
                 </div>
@@ -73,6 +73,7 @@
                                 <div class="price-box clearfix">
                                     <div class="special-price">
                                         <span class="price product-price">${product.price }</span>
+                                        <sup>vnd</sup>
                                     </div>
                                 </div>
                             </div>
@@ -126,12 +127,14 @@
                                             <label class="d-none">Số lượng:</label>
                                             <div class="custom custom-btn-numbers clearfix input_number_product">
                                                 <button class="btn-minus btn-cts" type="button">-</button>
-                                                <input type="text" class="qty input-text" id="qty" name="quantity" size="4" value="1">
+                                                <input type="text" class="qty input-text" id="quantity" name="quantity" size="4" value="1">
                                                 <button class="btn-plus btn-cts" type="button">+</button>
                                             </div>
                                         </div>
-                                        <div class="btn-mua">
-                                            <button type="submit" data-role="addToCart" class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">Thêm vào giỏ</button>
+                                        <div class="btn-mua" onclick="addToCart(${product.id},event, '${product.name }')">
+                                            <button type="submit" data-role="addtocart" class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">
+                                            <a>Thêm vào giỏ</a>
+                                            </button>
                                             <button type="button" class="btn btn-buy-now" data-id="56777157" data-qty="1">Mua ngay</button>
                                         </div>
                                    </div>
@@ -192,26 +195,11 @@
     <script src="${classpath }/frontend/slick/slick.js"></script> 
     <script src="${classpath }/frontend/js/index.js"></script>
     
-    <script>
-    var MainImg = document.getElementById("MainImg");
-    var smalling = document.getElementsByClassName("small-img");
 
-    smalling[0].onclick = function () {
-        MainImg.src = smalling[0].src;
-    }
-    smalling[1].onclick = function () {
-        MainImg.src = smalling[1].src;
-    }
-    smalling[2].onclick = function () {
-        MainImg.src = smalling[2].src;
-    }
-    smalling[3].onclick = function () {
-        MainImg.src = smalling[3].src;
-    }
-</script>
 	<!-- Add to cart -->
 	<script type="text/javascript">
-		addToCart = function(_productId, _productName) {
+		addToCart = function(_productId,event, _productName) {
+			event.preventDefault();
 			//alert("Thêm "  + _quantity + " sản phẩm '" + _productName + "' vào giỏ hàng ");
 			let data = {
 				productId : _productId, //lay theo id
@@ -239,6 +227,31 @@
 			});
 		}
 	</script>
+	<script>
+    var btnPlus = document.querySelector('.btn-plus');
+    var btnMinus = document.querySelector('.btn-minus');
+    var inputQty = document.querySelector('.qty');
+
+    // Sự kiện click cho nút "+"
+    btnPlus.addEventListener('click', function() {
+      // Lấy giá trị hiện tại của trường input
+      var currentValue = parseInt(inputQty.value);
+      
+      // Tăng giá trị lên 1 và cập nhật lại trường input
+      inputQty.value = currentValue + 1;
+    });
+
+    // Sự kiện click cho nút "-"
+    btnMinus.addEventListener('click', function() {
+      // Lấy giá trị hiện tại của trường input
+      var currentValue = parseInt(inputQty.value);
+      
+      // Giảm giá trị xuống 1, nhưng không nhỏ hơn 1
+      if (currentValue > 1) {
+        inputQty.value = currentValue - 1;
+      }
+    });
+    </script>
     
 </body>
 </html>

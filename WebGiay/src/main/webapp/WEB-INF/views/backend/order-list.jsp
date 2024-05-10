@@ -165,9 +165,9 @@
 													<div class="col-md-6">
 														<div class="form-group mb-4">
 															<h3>
-																Total sales: $
+																Total sales:
 																<fmt:formatNumber value="${totalSales }"
-																	minFractionDigits="0"></fmt:formatNumber>
+																	minFractionDigits="0"></fmt:formatNumber> VND
 															</h3>
 														</div>
 													</div>

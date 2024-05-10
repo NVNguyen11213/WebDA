@@ -24,9 +24,9 @@
                 <div class="flex-col flex-grow medium-text-center">
                     <div class="is-large">
                         <div class="woocommerce-breadcrumb breadcrumbs uppercase">
-                            <a href="">Trang chủ</a>
+                            <a href="${classpath }/index">Trang chủ</a>
                             <span class="divider">/</span>
-                            Giỏ hàng của bạn
+                            Giỏ hàng
                         </div>
                     </div>
                 </div>
@@ -37,6 +37,7 @@
         <div class="main-cart-page main-container col1-layout">
             <div class="main container cartpcstyle">
                 <div class="wrap_background_aside margin-bottom-40">
+                	
                     <div class="header-cart">
                         <div class="title-block-page">
                             <h1 class="title_cart">
@@ -44,6 +45,8 @@
                             </h1>
                         </div>
                     </div>
+                    <c:choose>
+						<c:when test="${totalCartProducts > 0}">
                     <div class="cart-page d-xl-block">
                         <div class="drawer__inner">
                             <div class="CartPageContainer">
@@ -54,80 +57,49 @@
                                         <div>Số lượng</div>
                                         <div>Thành tiền</div>
                                     </div>
+                                    <c:forEach var="item" items="${cart.productCarts }">
                                     <div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items">
                                         <div class="ajaxcart__row">
                                             <div class="ajaxcart__product cart_product">
                                                 <a href="" class="ajaxcart__product-image cart_image" title="Nike">
-                                                    <img src="${classpath }/frontend/img/sp1.jpg" alt="">
+                                                    <img src="${classpath}/FileUploads/${item.avatar }" alt="">
                                                 </a>
                                                 <div class="grid__item cart_info">
                                                     <div class="ajaxcart__product-name-wrapper cart_name">
-                                                        <a href="" class="ajaxcart__product-name h4" title="Nike Air Force 1 07 LV8">Nike Air Force 1 07 LV8</a>
+                                                        <a href="" class="ajaxcart__product-name h4" title="">${item.productName }</a>
                                                         <span class="ajaxcart__product-meta variant-title">Đen / 40</span>
-                                                        <a href="" class="cart__btn-remove remove-item-cart ajaxifyCart--remove">Xóa</a>
+                                                        <a href="${classpath }/product-cart-delete/${item.productId}" class="cart__btn-remove remove-item-cart ajaxifyCart--remove">Xóa</a>
                                                     </div>
                                                     <div class="grid">
                                                         <div class="grid__item one-half text-right cart_prices">
-                                                            <span class="cart-price">4.000.000đ</span>
+                                                            <span class="cart-price">${item.price }</span>
                                                         </div>
                                                     </div>
                                                     <div class="grid">
                                                         <div class="grid__item one-half cart_select">
                                                             <div class="ajaxcart__qty input-group-btn">
                                                                 <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" 
+                                                                onclick="updateProductQuantity(${item.productId }, -1)" value="-"
                                                                 >-</button>
-                                                                <input type="text" name="update[]" class="ajaxcart__qty-num number-sidebar" value="0"
+                                                                <input type="text" name="update[]" class="ajaxcart__qty-num number-sidebar" id="productQuantity_${item.productId}" value="${item.quantity}"
                                                                 data-line="1" aria-label="quantity" maxlength="3">
                                                                 <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" 
+                                                                onclick="updateProductQuantity(${item.productId }, 1)" value="+"
                                                                 >+</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="grid">
                                                         <div class="grid__item one-half text-right cart_prices">
-                                                            <span class="cart-price">4.000.000đ</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ajaxcart__row">
-                                            <div class="ajaxcart__product cart_product">
-                                                <a href="" class="ajaxcart__product-image cart_image" title="Nike">
-                                                    <img src="${classpath }/frontend/img/sp1.jpg" alt="">
-                                                </a>
-                                                <div class="grid__item cart_info">
-                                                    <div class="ajaxcart__product-name-wrapper cart_name">
-                                                        <a href="" class="ajaxcart__product-name h4" title="Nike Air Force 1 07 LV8">Nike Air Force 1 07 LV8</a>
-                                                        <span class="ajaxcart__product-meta variant-title">Đen / 40</span>
-                                                        <a href="" class="cart__btn-remove remove-item-cart ajaxifyCart--remove">Xóa</a>
-                                                    </div>
-                                                    <div class="grid">
-                                                        <div class="grid__item one-half text-right cart_prices">
-                                                            <span class="cart-price">3.900.000đ</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid">
-                                                        <div class="grid__item one-half cart_select">
-                                                            <div class="ajaxcart__qty input-group-btn">
-                                                                <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" 
-                                                                data-qty="0" data-line="1" aria-label="-">-</button>
-                                                                <input type="text" name="update[]" class="ajaxcart__qty-num number-sidebar" value="1"
-                                                                data-line="1" aria-label="quantity" maxlength="3">
-                                                                <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" 
-                                                                data-qty="2" data-line="1" aria-label="+">+</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid">
-                                                        <div class="grid__item one-half text-right cart_prices">
-                                                            <span class="cart-price">3.900.000đ</span>
+                                                            <span class="cart-price"><fmt:formatNumber
+															value="${item.price * item.quantity }" minFractionDigits="0"></fmt:formatNumber></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    </c:forEach>
                                     <div class="ajaxcart__footer ajaxcart__footer--fixed cart-footer">
                                         <div class="row">
                                             <div class="col-lg-4 col-12 offset-lg-8 offset-xl-8">
@@ -137,7 +109,9 @@
                                                             Tổng tiền:
                                                         </div>
                                                         <div class="text-right cart__totle">
-                                                            <span class="total-price">7.900.000đ</span>
+                                                            <span class="total-price"><fmt:formatNumber value="${totalCartPrice }"
+																	minFractionDigits="0"></fmt:formatNumber>
+																<sup>đ</sup></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -160,7 +134,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
                                                                     <label for="name">Customer name (*)</label>
-                                                                    <input type="text" class="form-control" id="txtName" name="txtName" placeholder="your name" value="">
+                                                                    <input type="text" class="form-control" id="txtName" name="txtName" placeholder="your name" value="${loginedUser.name }">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -168,7 +142,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
                                                                     <label for="mobile">Customer mobile (*)</label>
-                                                                    <input type="text" class="form-control" id="txtMobile" name="txtMobile" placeholder="your phone number" value="">
+                                                                    <input type="text" class="form-control" id="txtMobile" name="txtMobile" placeholder="your phone number" value="${loginedUser.mobile }">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -176,7 +150,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
                                                                     <label for="phone">Customer email</label>
-                                                                    <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="your email" value="">
+                                                                    <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="your email" value="${loginedUser.email }">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -184,15 +158,15 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
                                                                     <label for="phone">Customer address</label>
-                                                                    <input type="text" class="form-control" id="txtAddress" name="txtAddress" placeholder="your address" value="">
+                                                                    <input type="text" class="form-control" id="txtAddress" name="txtAddress" placeholder="your address" value="${loginedUser.address }">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
-                                                                    <a href="/index" class="btn btn-primary active" role="button" aria-pressed="true"> Back to shop </a>
-                                                                    <button class="btn btn-primary" onclick="_placeOrder()">Place orders</button>
+                                                                    <a href="${classpath }/index" class="btn btn-primary active" role="button" aria-pressed="true"> Mua thêm </a>
+                                                                    <button class="btn btn-primary" onclick="_placeOrder(event)">Đặt hàng</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -205,6 +179,38 @@
                             </div>
                         </div>
                     </div>
+                    </c:when>
+                    <c:otherwise>
+							<div class="row">
+								<div class="col-12">
+									<c:choose>
+										<c:when test="${checkout }">
+											<h3 align="center"
+												class="page-title text-truncate text-dark font-weight-medium mb-1">
+												<span id="placeOrderSuccess">Bạn đã đặt hàng thành công</span>
+											</h3>
+										</c:when>
+										<c:otherwise>
+											<h3 align="center"
+												class="page-title text-truncate text-dark font-weight-medium mb-1">
+												<span>Your cart: ${errorMessage }</span>
+											</h3>
+										</c:otherwise>
+									</c:choose>
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12" align="center">
+									<div class="form-group mb-4">
+										<a href="${classpath }/index" class="btn btn-primary active"
+											role="button" aria-pressed="true"> Back to shop </a>
+									</div>
+								</div>
+							</div>
+
+						</c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>
@@ -235,6 +241,7 @@
 					let totalProducts = jsonResult.totalCartProducts; 
 					//Viet lai so luong sau khi bam nut -, +
 					$("#productQuantity_" + jsonResult.productId).html(jsonResult.newQuantity); 
+					location.reload();
 				},
 
 				error : function(jqXhr, textStatus, errorMessage) {
@@ -245,7 +252,8 @@
 	</script>
 	
 		<script type="text/javascript">
-		function _placeOrder() {
+		function _placeOrder(event) {
+			event.preventDefault();
 			//javascript object
 			let data = {				
 				txtName : jQuery("#txtName").val(),
@@ -273,6 +281,7 @@
 			});
 		}
 	</script>
+    
     
 </body>
 </html>

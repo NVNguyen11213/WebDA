@@ -102,8 +102,8 @@
 														</div>
 													</div>
 												</div>
-												<h1 class="mt-1 mb-3">$ <fmt:formatNumber value="${totalSales }"
-																			minFractionDigits="0" /></h1>
+												<h1 class="mt-1 mb-3"><fmt:formatNumber value="${totalSales }"
+																			minFractionDigits="0" /> VND</h1>
 												<!-- <div class="mb-0">
 													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
 													<span class="text-muted">Since last week</span>
@@ -143,7 +143,7 @@
 								</div>
 								<div class="card-body py-3">
 									<div class="chart chart-sm">
-										<canvas id="chartjs-dashboard-line"></canvas>
+										<canvas id="chartjs-dashboard-revenue"></canvas>
 									</div>
 								</div>
 							</div>

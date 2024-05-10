@@ -17,11 +17,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 
 
 @Entity
 @Table(name = "tbl_user")
-public class User extends BaseModel {
+public class User extends BaseModel implements UserDetails{
 	@Column(name = "username", length = 120, nullable = false)
 	private String username;
 
@@ -350,6 +353,36 @@ public class User extends BaseModel {
 
 	public void setUserUpdateUser(User userUpdateUser) {
 		this.userUpdateUser = userUpdateUser;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return this.roles;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

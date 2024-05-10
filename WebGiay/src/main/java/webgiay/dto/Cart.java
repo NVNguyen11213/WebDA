@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Cart {
 
-	List<ProductCart> productCarts = new ArrayList<ProductCart>();
+	private List<ProductCart> productCarts = new ArrayList<ProductCart>();
 	
 	public BigInteger totalCartProduct() {
 		BigInteger total = BigInteger.ZERO;

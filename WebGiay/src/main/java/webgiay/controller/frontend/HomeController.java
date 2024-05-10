@@ -31,7 +31,15 @@ public class HomeController extends BaseController implements Jw27Constants {
 	@Autowired
 	private Product_imageService product_imageService;
 	
-
+//	@RequestMapping(value="/index", method = RequestMethod.GET)
+//	// @RequestMapping : Anh xa mot action den mot action method trong controller
+//	public String index(final Model model,
+//			final HttpServletRequest request,
+//			final HttpServletResponse response) throws IOException{
+//		List<Product> products = productService.findAllActive();
+//		model.addAttribute("products",products);
+//		return "frontend/index";
+//	}
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 
 	public String list(final Model model, final HttpServletRequest request) {
@@ -80,6 +88,11 @@ public class HomeController extends BaseController implements Jw27Constants {
 		searchProduct.setSizeOfPage(SIZE_OF_INDEX); // So ban ghi tren 1 trang
 		searchProduct.setTotalItems(allProducts.size()); // Tong so san pham theo tim kiem
 
+		// Lấy ra danh sách sản phẩm isHot
+	    List<Product> isHotProducts = productService.findAllActiveAndIsHot();
+	    model.addAttribute("isHotProducts", isHotProducts);
+	    model.addAttribute("discountsForHotProducts", calculateDiscounts(isHotProducts));
+	    
 		// List<Product> products = productService.searchProduct(productSearch);
 		model.addAttribute("products", products);
 		model.addAttribute("productSearch", searchProduct);
@@ -89,7 +102,9 @@ public class HomeController extends BaseController implements Jw27Constants {
 
 	@RequestMapping(value = "/product-detail/{productId}", method = RequestMethod.GET)
 
-	public String productDetail(final Model model, final HttpServletRequest request, final HttpServletResponse response,
+	public String productDetail(final Model model, 
+			final HttpServletRequest request, 
+			final HttpServletResponse response,
 			@PathVariable("productId") int productId) throws IOException {
 
 		Product product = productService.getById(productId);
