@@ -59,34 +59,34 @@
                                         <div class="form-signup clearfix">
                                             <fieldset class="form-group margin-bottom-10">
                                                 <label for="username">
-                                                    username
+                                                    Tài khoản
                                                     <span class="required">*</span>
                                                 </label>
-                                                <input name="username" type="text" autocomplete="off" placeholder="Username"
+                                                <input name="username" type="text" autocomplete="off"
                                                 class="form-control form-control-lg" id="username">
                                             </fieldset>
                                             <fieldset class="form-group margin-bottom-10">
                                                 <label for="password">
-                                                    Password
+                                                    Mật khẩu
                                                     <span class="required">*</span>
                                                 </label>
-                                                <input name="password" type="password" autocomplete="off" placeholder="Password"
+                                                <input name="password" type="password" autocomplete="off"
                                                 class="form-control form-control-lg" id="password">
                                             </fieldset>
                                             <fieldset class="form-group margin-bottom-10">
                                                 <label for="retypepassword">
-                                                    Retype password
+                                                    Nhập lại mật khẩu
                                                     <span class="required">*</span>
                                                 </label>
-                                                <input name="retypepassword" type="password" autocomplete="off" placeholder="Retypepassword"
+                                                <input name="retypepassword" type="password" autocomplete="off"
                                                 class="form-control form-control-lg" id="retypepassword">
                                             </fieldset>
                                             <fieldset class="form-group margin-bottom-10">
                                                 <label for="name">
-                                                    Name
+                                                    Họ và tên
                                                     <span class="required">*</span>
                                                 </label>
-                                                <input name="name" type="text" autocomplete="off" placeholder="Name"
+                                                <input name="name" type="text" autocomplete="off"
                                                 class="form-control form-control-lg" id="name">
                                             </fieldset>
                                             <fieldset class="form-group margin-bottom-10">
@@ -94,23 +94,23 @@
                                                     Email
                                                     <span class="required">*</span>
                                                 </label>
-                                                <input name="email" type="email" autocomplete="off" placeholder="Email"
+                                                <input name="email" type="email" autocomplete="off"
                                                 class="form-control form-control-lg" id="email">
                                             </fieldset>
                                             <fieldset class="form-group margin-bottom-0">
                                                 <label for="mobile">
-                                                    Mobile
+                                                    Số điện thoại
                                                     <span class="required">*</span>
                                                 </label>
-                                                <input name="mobile" type="text" autocomplete="off" placeholder="Mobile"
+                                                <input name="mobile" type="text" autocomplete="off"
                                                 class="form-control form-control-lg" id="mobile">
                                             </fieldset>
                                             <fieldset class="form-group margin-bottom-0">
                                                 <label for="address">
-                                                    Address
+                                                    Địa chỉ
                                                     <span class="required">*</span>
                                                 </label>
-                                                <input name="address" type="text" autocomplete="off" placeholder="Address"
+                                                <input name="address" type="text" autocomplete="off"
                                                 class="form-control form-control-lg" id="address">
                                             </fieldset>
                                             <div class="clearfix">
@@ -123,7 +123,7 @@
                                                 <button class="btn btn-style btn-blues" type="submit" value="Đăng nhập">Đăng ký</button>
                                             </div>
                                             <p class="login--notes">
-                                                ND Shoes cam kết bảo mật và sẽ không bao giờ đăng <br>
+                                                Cam kết bảo mật và sẽ không bao giờ đăng <br>
                                                 hay chia sẻ thông tin mà chưa có được sự đồng ý của bạn.
                                             </p>
                                         </div>

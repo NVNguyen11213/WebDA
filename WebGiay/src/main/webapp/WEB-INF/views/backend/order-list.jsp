@@ -47,7 +47,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">Order Tracking</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Theo dõi đặt hàng</h1>
 
 					<div class="container-fluid">
 						<!-- ============================================================== -->
@@ -90,7 +90,7 @@
 
 													<div class="col-md-1">
 														<button type="submit" id="btnSearch" name="btnSearch"
-															class="btn btn-primary">Search</button>
+															class="btn btn-primary">Tìm kiếm</button>
 													</div>
 													<div class="col-md-1">
 														<input id="currentPage" name="currentPage"
@@ -104,18 +104,18 @@
 													class="table table-striped table-bordered no-wrap">
 													<thead>
 														<tr align="center">
-															<th scope="col">No.</th>
-															<th scope="col">Code</th>
-															<th scope="col">Customer</th>
-															<th scope="col">Mobile</th>
-															<th scope="col">Address</th>
-															<th scope="col">Payment</th>
-															<th scope="col">Create by</th>
+															<th scope="col">STT</th>
+															<th scope="col">Mã</th>
+															<th scope="col">Tên</th>
+															<th scope="col">Số điện thoại</th>
+															<th scope="col">Địa chỉ</th>
+															<th scope="col">Tiền</th>
+															<th scope="col">Người tạo</th>
 															<!-- <th scope="col">Update by</th> -->
-															<th scope="col">Create date</th>
-															<th scope="col">Delivery date</th>
-															<th scope="col">Status</th>
-															<th scope="col">Action</th>
+															<th scope="col">Ngày tạo</th>
+															<th scope="col">Ngày giao hàng</th>
+															<th scope="col">Trạng thái</th>
+															<th scope="col">Hoạt động</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -148,13 +148,13 @@
 																<td>
 																	<a 
 																	href="${classpath }/admin/order/detail/${saleOrder.id }" 
-																	role="button" class="btn btn-success">Details</a>
+																	role="button" class="btn btn-success">Chi tiết</a>
 																	<a
 																	href="${classpath }/admin/order/edit/${saleOrder.id }"
-																	role="button" class="btn btn-primary">Edit</a> 
+																	role="button" class="btn btn-primary">Sửa</a> 
 																	<a
 																	href="${classpath }/admin/order/delete/${saleOrder.id }"
-																	role="button" class="btn btn-secondary">Delete</a>							
+																	role="button" class="btn btn-secondary">Xóa</a>							
 																</td>
 															</tr>
 														</c:forEach>
@@ -165,7 +165,7 @@
 													<div class="col-md-6">
 														<div class="form-group mb-4">
 															<h3>
-																Total sales:
+																Tổng tiền đơn hàng: 
 																<fmt:formatNumber value="${totalSales }"
 																	minFractionDigits="0"></fmt:formatNumber> VND
 															</h3>

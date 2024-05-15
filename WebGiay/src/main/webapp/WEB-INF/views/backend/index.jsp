@@ -40,7 +40,6 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
 
 					<div class="row">
 						<div class="col-xl-6 col-xxl-5 d-flex">
@@ -51,7 +50,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Total Products</h5>
+														<h5 class="card-title">Tổng sản phẩm</h5>
 													</div>
 
 													<div class="col-auto">
@@ -71,7 +70,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Visitors</h5>
+														<h5 class="card-title">Khách</h5>
 													</div>
 
 													<div class="col-auto">
@@ -93,7 +92,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Revenue</h5>
+														<h5 class="card-title">Doanh thu</h5>
 													</div>
 
 													<div class="col-auto">
@@ -114,7 +113,7 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col mt-0">
-														<h5 class="card-title">Orders</h5>
+														<h5 class="card-title">Đơn hàng</h5>
 													</div>
 
 													<div class="col-auto">
@@ -139,7 +138,7 @@
 							<div class="card flex-fill w-100">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">Recent Movement</h5>
+									<h5 class="card-title mb-0">Thống kê doanh thu</h5>
 								</div>
 								<div class="card-body py-3">
 									<div class="chart chart-sm">
@@ -154,7 +153,7 @@
 						<div class="col-12 col-md-12 col-xxl-3 d-flex order-1 order-xxl-1">
 							<div class="card flex-fill">
 								<div class="card-header">
-									<h5 class="card-title mb-0">Calendar</h5>
+									<h5 class="card-title mb-0">Lịch</h5>
 								</div>
 								<div class="card-body d-flex">
 									<div class="align-self-center w-100">

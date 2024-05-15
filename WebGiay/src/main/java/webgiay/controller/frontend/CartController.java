@@ -64,10 +64,15 @@ public class CartController extends BaseController implements Jw27Constants{
 		if(index != -1) {// San pham da co trong gio hang
 			cart.getProductCarts().get(index).setQuantity(cart.getProductCarts().get(index).getQuantity().add(addProduct.getQuantity()));
 		}else {
+			if(dbProduct.getSalePrice() != null) {
+				addProduct.setProductName(dbProduct.getName());
+				addProduct.setAvatar(dbProduct.getAvatar());
+				addProduct.setPrice(dbProduct.getSalePrice());
+			}else {
 			addProduct.setProductName(dbProduct.getName());
 			addProduct.setAvatar(dbProduct.getAvatar());
 			addProduct.setPrice(dbProduct.getPrice());
-			
+			}
 			cart.getProductCarts().add(addProduct);
 		}
 		

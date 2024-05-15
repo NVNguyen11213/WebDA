@@ -72,7 +72,8 @@
                                                     </div>
                                                     <div class="grid">
                                                         <div class="grid__item one-half text-right cart_prices">
-                                                            <span class="cart-price">${item.price }</span>
+                                                            <span class="cart-price"><fmt:formatNumber
+															value="${item.price}"></fmt:formatNumber></span>
                                                         </div>
                                                     </div>
                                                     <div class="grid">
@@ -133,7 +134,7 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
-                                                                    <label for="name">Customer name (*)</label>
+                                                                    <label for="name">Họ và tên</label>
                                                                     <input type="text" class="form-control" id="txtName" name="txtName" placeholder="your name" value="${loginedUser.name }">
                                                                 </div>
                                                             </div>
@@ -141,7 +142,7 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
-                                                                    <label for="mobile">Customer mobile (*)</label>
+                                                                    <label for="mobile">Số điện thoại</label>
                                                                     <input type="text" class="form-control" id="txtMobile" name="txtMobile" placeholder="your phone number" value="${loginedUser.mobile }">
                                                                 </div>
                                                             </div>
@@ -149,7 +150,7 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
-                                                                    <label for="phone">Customer email</label>
+                                                                    <label for="phone">Email</label>
                                                                     <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="your email" value="${loginedUser.email }">
                                                                 </div>
                                                             </div>
@@ -157,7 +158,7 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group mb-4">
-                                                                    <label for="phone">Customer address</label>
+                                                                    <label for="phone">Địa chỉ</label>
                                                                     <input type="text" class="form-control" id="txtAddress" name="txtAddress" placeholder="your address" value="${loginedUser.address }">
                                                                 </div>
                                                             </div>

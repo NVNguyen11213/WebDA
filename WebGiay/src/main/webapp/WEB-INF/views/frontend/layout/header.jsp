@@ -27,27 +27,26 @@
                                     <a href="${classpath }/allproduct"">Sản phẩm
                                         <svg class="icon-menu" fill="black" xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
                                     </a>
-                                    <ul class="sub-menu">
+                                     <ul class="sub-menu">
                                         <li class="sub-li">
-                                            <a href="">Giày Nam</a>
+                                            <a href="${classpath }/allproduct?categoryId=3">Giày Nam</a>
                                         </li>
                                         <li class="sub-li">
-                                            <a href="">Giày Nữ</a>
+                                            <a href="${classpath }/allproduct?categoryId=4">Giày Nữ</a>
                                         </li>
                                         <li class="sub-li">
-                                            <a href="">Giày Trẻ Em</a>
+                                            <a href="${classpath }/allproduct?categoryId=5">Giày Trẻ Em</a>
                                         </li>
                                         <li class="sub-li">
-                                            <a href="">Giày Nội Địa</a>
+                                            <a href="${classpath }/allproduct?categoryId=6">Giày Nội Địa</a>
                                         </li>
                                     </ul>
                                 </li>
+                               
                                 <li class="nav-item">
                                     <a href="${classpath }/Promotion">Khuyến mãi</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="${classpath }/news">Tin tức</a>
-                                </li>
+                                
                                 <li class="nav-item">
                                     <a href="${classpath }/contact">Liên hệ</a>
                                 </li>
@@ -64,7 +63,8 @@
                                         </div>
                                         <div class="nd-header-search nd-search">
                                             <form action="">
-                                                <input type="text" placeholder="Tìm kiếm sản phẩm ">
+                                               <input type="text" class="form-control" id="keyword"
+									name="keyword" value="${keyword }" placeholder="tên sản phẩm" />
                                                 <button>
                                                     <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
                                                 </button>
@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="drop-account">
                                             <a href="${classpath }/login">Đăng nhập</a>
-                                            <a href="${classpath }/login">Đăng xuất</a>
+                                            <a href="${classpath }/signup">Đăng ký</a>
                                         </div>
                                     </li>
                                     <li>

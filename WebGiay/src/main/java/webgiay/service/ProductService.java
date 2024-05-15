@@ -32,6 +32,10 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 	public List<Product> findAllActiveAndIsHot() {
 		return super.executeNativeSql("SELECT * FROM tbl_product WHERE status=1 AND is_hot = 1");
 	}
+	
+	public List<Product> findAllActiveAndPromotion() {
+		return super.executeNativeSql("SELECT * FROM tbl_product WHERE status=1 AND sale_price IS NOT NULL");
+	}
 
 	// Phương thức kiểm tra (1) file có được upload hay không?
 	public boolean isUploadFile(MultipartFile file) {
@@ -189,7 +193,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 		String sql = "SELECT * FROM tbl_product p WHERE 1=1";
 
 		// Tim kiem voi status
-		if (productSearch.getStatus() != 2) { // Có ch�?n Active/Inactive
+		if (productSearch.getStatus() != 2) { // Có Active/Inactive
 			sql += " AND p.status=" + productSearch.getStatus();
 		}
 

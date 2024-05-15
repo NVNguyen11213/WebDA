@@ -2,13 +2,9 @@ package webgiay.controller.backend;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.xml.bind.PrintConversionEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,15 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import webgiay.controller.BaseController;
-import webgiay.dto.Cart;
 import webgiay.dto.Jw27Constants;
-import webgiay.dto.ProductCart;
 import webgiay.dto.SearchModel;
-import webgiay.model.Product;
 import webgiay.model.SaleOrder;
 import webgiay.model.SaleOrderProduct;
 import webgiay.model.User;
-import webgiay.service.ProductService;
 import webgiay.service.SaleOrderProductService;
 import webgiay.service.SaleOrderService;
 import webgiay.service.UserService;
@@ -42,15 +34,13 @@ public class OrderControler extends BaseController implements Jw27Constants {
 	@Autowired
 	private UserService userService;
 
-	@Autowired
-	private ProductService productService;
 	
 //	@RequestMapping(value = "list", method = RequestMethod.GET)
 //	// Cách đẩy 1 dữ liệu sang view
 //	public String list(final Model model) {
 //		List<SaleOrder> saleOrders = saleOrderService.findAll();
 //
-//		// �?ảm bảo rằng ngày tạo không phải là null
+//		// �?ảm bảo rằng ngày tạo không phải là null
 //		for (SaleOrder saleOrder : saleOrders) {
 //			if (saleOrder.getCreateDate() == null) {
 //				saleOrder.setCreateDate(new Date());
@@ -146,7 +136,7 @@ public class OrderControler extends BaseController implements Jw27Constants {
 		saleOrderSearch.setTotalItems(allSaleOrders.size()); // Tong so san pham theo tim kiem
 
 //		List<SaleOrder> saleOrders = saleOrderService.searchOrder(searchOrderSearch);
-		// �?ảm bảo rằng ngày tạo không phải là null
+		// �?ảm bảo rằng ngày tạo không phải là null
 //		for (SaleOrder saleOrder : allSaleOrders) {
 //			if (saleOrder.getCreateDate() == null) {
 //				saleOrder.setCreateDate(new Date());
@@ -186,7 +176,7 @@ public class OrderControler extends BaseController implements Jw27Constants {
 
 	// EDIT ORDER
 	@RequestMapping(value = "edit/{saleOrderId}", method = RequestMethod.GET)
-	// �?ẩy 1 dữ liệu sang view
+	// �?ẩy 1 dữ liệu sang view
 	public String edit(final Model model, @PathVariable("saleOrderId") int saleOrderId) {
 
 		List<User> users = userService.findAll();
@@ -221,7 +211,7 @@ public class OrderControler extends BaseController implements Jw27Constants {
 
 	// DETAIL ORDER
 	@RequestMapping(value = "detail/{saleOrderId}", method = RequestMethod.GET)
-	// �?ẩy 1 dữ liệu sang view
+	// �?ẩy 1 dữ liệu sang view
 	public String detail(final Model model, @PathVariable("saleOrderId") int saleOrderId) {
 
 		// Lấy order trong DB bằng id để hiện thông tin khách hàng

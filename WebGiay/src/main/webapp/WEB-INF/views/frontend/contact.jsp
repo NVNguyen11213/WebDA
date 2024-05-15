@@ -43,10 +43,9 @@
                         </h3>
                     </div>
                     <p>Hãy gọi đến HOTLINE : <strong style="font-size: 120%;">0905 692 314</strong></p>
-                    <p>Hoặc gửi thư qua email : sagovn.net@gmail.com</p>
+                    <p>Hoặc gửi thư qua email : thuongdinhfootwear@gmail.com</p>
                     <p>để được tư vấn và giải đáp mọi thắc mắc của quý khách hàng !</p>
-                    <p><strong>HÀ CHI – Thương hiệu thiết bị vệ sinh cao cấp nhập khẩu hàn quốc</strong></p>
-                    <p>Showroom : 435 Âu Cơ – Đà Nẵng</p>
+                    <p>Địa chỉ:  277 Đường Nguyễn Trãi, P. Thanh Xuân Trung, Q. Thanh Xuân, Hà Nội, Việt Nam</p>
                 </div>
             </div>
             <div class="col medium-6 large-6">
@@ -60,17 +59,17 @@
                         <form action="/lien-he#wpcf7-f8-p23-o1" method="post" class="wpcf7-form" novalidate="novalidate">
                             <div class="form-flat">
                                 <span class="wpcf7-form-control-wrap your-name">
-                                    <input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name (required)">
+                                    <input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="họ và tên">
                                 </span>
                                 <p></p>
                                 <p>
                                     <span class="wpcf7-form-control-wrap your-email">
-                                        <input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your Email (required)">
+                                        <input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="email">
                                     </span> 
                                 </p>
                                 <p>
                                     <span class="wpcf7-form-control-wrap your-message">
-                                        <textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Your Message (required)"></textarea>
+                                        <textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="lời nhắn"></textarea>
                                     </span> 
                                 </p>
                                 <p>

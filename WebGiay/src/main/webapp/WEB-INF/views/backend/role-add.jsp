@@ -41,7 +41,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">Add Role</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Thêm quyền</h1>
 
 					<div class="row">
                         <div class="col-12">
@@ -53,7 +53,7 @@
 	                                    	
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="name">Role name</label>
+			                                        <label for="name">Tên</label>
 			                                        <sf:input path="name" type="text" class="form-control" id="name" name="name" placeholder="role name"></sf:input>
                                         		</div>
 	                                    	</div>
@@ -62,7 +62,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="role">Create by</label>
+			                                        <label for="role">Người tạo</label>
 			                                        <sf:select path="userCreateRole.id" class="form-control" id="userCreateRole">
 			                                            <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
 			                                        </sf:select>
@@ -71,7 +71,7 @@
 									
 											<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="role">Update by</label>
+			                                        <label for="role">Người cập nhật</label>
 			                                        <sf:select path="userUpdateRole.id" class="form-control" id="userUpdateRole">
 			                                            <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
 			                                        </sf:select>
@@ -81,7 +81,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="createdate">Create date</label>
+			                                        <label for="createdate">Ngày tạo</label>
 			                                        
 			                                        <sf:input path="createDate" class="form-control" type="date" 
 			                                        			id="createDate" name="createDate"></sf:input>
@@ -90,7 +90,7 @@
 									
 											<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="updatedate">Update date</label>
+			                                        <label for="updatedate">Ngày cập nhật</label>
 			                                       
 			                                        <sf:input path="updateDate" class="form-control" type="date" 
 			                                        			id="updateDate" name="updateDate"></sf:input>
@@ -101,7 +101,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-12">
 												<div class="form-group mb-4">
-			                                        <label for="description">Description</label>
+			                                        <label for="description">Mô tả</label>
 			                                        <sf:textarea path="description" id="description" name="description"
 																class="form-control" rows="3" placeholder="desription..."></sf:textarea>
                                         		</div>
@@ -114,7 +114,7 @@
 												<div class="form-group mb-4">
 													<label for="status">&nbsp;&nbsp;&nbsp;&nbsp;</label>
 													<sf:checkbox path="status" class="form-check-input" id="status" name="status"></sf:checkbox>
-			                                        <label for="status">Active</label>			                                       
+			                                        <label for="status">Hoạt động</label>			                                       
                                         		</div>
 	                                    	</div>
 	                                    	
@@ -125,9 +125,9 @@
 	                        		 		<div class="col-md-12">
 												<div class="form-group mb-4">
 			                                        <a href="${classpath }/admin/role/list" class="btn btn-secondary active" role="button" aria-pressed="true">
-			                                        	Back to list
+			                                        	Quay lại danh sách
 			                                        </a>
-                                    				<button type="submit" class="btn btn-primary">Save role</button>
+                                    				<button type="submit" class="btn btn-primary">Lưu quyền</button>
                                         		</div>
 	                                    	</div>
 										</div>

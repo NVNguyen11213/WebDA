@@ -41,7 +41,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">Add Category</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Thêm thể loại</h1>
 
 					<div class="row">
                         <div class="col-12">
@@ -53,7 +53,7 @@
 	                                    	
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="name">Category name</label>
+			                                        <label for="name">Tên thể loại</label>
 			                                        <sf:input style="height: 38px;" path="name" type="text" class="form-control" id="name" name="name" placeholder="category name"></sf:input>
                                         		</div>
 	                                    	</div>
@@ -62,7 +62,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="category">Create by</label>
+			                                        <label for="category">Người tạo</label>
 			                                        <sf:select path="userCreateCategory.id" class="form-control" id="userCreateCategory">
 			                                            <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
 			                                        </sf:select>
@@ -71,7 +71,7 @@
 									
 											<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="category">Update by</label>
+			                                        <label for="category">Người cập nhật</label>
 			                                        <sf:select path="userUpdateCategory.id" class="form-control" id="userUpdateCategory">
 			                                            <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
 			                                        </sf:select>
@@ -81,7 +81,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="createDate">Create date</label>
+			                                        <label for="createDate">Ngày tạo</label>
 			                                        
 			                                        <sf:input style="height: 38px;" path="createDate" class="form-control" type="date" 
 			                                        			id="createDate" name="createDate"></sf:input>
@@ -90,7 +90,7 @@
 									
 											<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="updateDate">Update date</label>
+			                                        <label for="updateDate">Ngày cập nhật</label>
 			                                       
 			                                        <sf:input style="height: 38px;" path="updateDate" class="form-control" type="date" 
 			                                        			id="updateDate" name="updateDate"></sf:input>
@@ -101,7 +101,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-12">
 												<div class="form-group mb-4">
-			                                        <label for="description">Description</label>
+			                                        <label for="description">Mô tả</label>
 			                                        <sf:textarea path="description" id="description" name="description"
 																class="form-control" rows="3" placeholder="desription..."></sf:textarea>
                                         		</div>
@@ -114,7 +114,7 @@
 												<div class="form-group mb-4">
 													<label for="status">&nbsp;&nbsp;&nbsp;&nbsp;</label>
 													<sf:checkbox path="status" class="form-check-input" id="status" name="status"></sf:checkbox>
-			                                        <label for="status">Active</label>			                                       
+			                                        <label for="status">Hoạt động</label>			                                       
                                         		</div>
 	                                    	</div>
 	                                    	
@@ -125,9 +125,9 @@
 	                        		 		<div class="col-md-12">
 												<div class="form-group mb-4">
 			                                        <a href="${classpath }/admin/category/list" class="btn btn-secondary active" role="button" aria-pressed="true">
-			                                        	Back to list
+			                                        	Quay lại
 			                                        </a>
-                                    				<button type="submit" class="btn btn-primary">Save category</button>
+                                    				<button type="submit" class="btn btn-primary">Lưu thể loại</button>
                                         		</div>
 	                                    	</div>
 										</div>

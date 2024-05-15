@@ -51,7 +51,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">Order Detail</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Chi tiết đơn hàng</h1>
 
 					<div class="container-fluid">
 						<!-- ============================================================== -->
@@ -67,7 +67,7 @@
 											<div class="form-body">
 												<div class="row">
 													<div class="col-md-12 text-center mb-3">
-														<h2>ORDER DETAILS</h2>
+														<h2>CHI TIẾT ĐƠN HÀNG</h2>
 													</div>
 
 													<div class="col-md-6">
@@ -87,13 +87,13 @@
 														class="table table-striped table-bordered no-wrap">
 														<thead>
 															<tr align="center">
-																<th scope="col">No.</th>
-																<th scope="col">Id</th>
-																<th scope="col">Name</th>
-																<th scope="col">Avatar</th>
-																<th scope="col">Quantity</th>
-																<th scope="col">Price</th>
-																<th scope="col">Total</th>
+																<th scope="col">STT</th>
+																<th scope="col">Mã</th>
+																<th scope="col">Tên</th>
+																<th scope="col">Ảnh</th>
+																<th scope="col">Số lượng</th>
+																<th scope="col">Giá</th>
+																<th scope="col">Tổng tiền</th>
 															</tr>
 														</thead>
 														<tbody>
@@ -121,9 +121,9 @@
 													<div class="col-md-12 text-right">
 														<div class="form-group mb-4">
 															<h3>
-																Total sales: $
+																Tổng tiền đơn hàng:
 																<fmt:formatNumber value="${totalSales }"
-																	minFractionDigits="0"></fmt:formatNumber>
+																	minFractionDigits="0"></fmt:formatNumber> VND
 															</h3>
 														</div>
 													</div>
@@ -135,7 +135,7 @@
 														<div class="form-group mb-4">
 															<a href="${classpath }/admin/order/list"
 																class="btn btn-secondary active" role="button"
-																aria-pressed="true"> Back to list </a>
+																aria-pressed="true"> Quay lại danh sách </a>
 														</div>
 													</div>
 												</div>

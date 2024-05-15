@@ -47,7 +47,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">List User</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Danh sách người dùng</h1>
 
 					<div class="container-fluid">
 						<!-- ============================================================== -->
@@ -64,7 +64,7 @@
 												<div class="col-md-6">
 													<div class="form-group mb-4">
 														<a href="${classpath }/admin/user/add" role="button"
-															class="btn btn-primary">Add New User</a>
+															class="btn btn-primary">Thêm người dùng mới</a>
 													</div>
 												</div>
 
@@ -75,21 +75,21 @@
 												class="table table-striped table-bordered no-wrap">
 												<thead>
 													<tr>
-														<th scope="col">No.</th>
-														<th scope="col">Id</th>
-														<th scope="col">Username</th>
-														<th scope="col">Password</th>
-														<th scope="col">Name</th>
-														<th scope="col">Mobile</th>
+														<th scope="col">STT</th>
+														<th scope="col">Mã</th>
+														<th scope="col">Tài khoản</th>
+														<th scope="col">Mật khẩu</th>
+														<th scope="col">Tên</th>
+														<th scope="col">Số điện thoại</th>
 														<th scope="col">Email</th>
-														<th scope="col">Address</th>
-														<th scope="col">Create by</th>
-														<th scope="col">Update by</th>
-														<th scope="col">Create date</th>
-														<th scope="col">Update date</th>
-														<th scope="col">Status</th>
-														<th scope="col">Description</th>
-														<th scope="col">Action</th>
+														<th scope="col">Địa chỉ</th>
+														<th scope="col">Người tạo</th>
+														<th scope="col">Người cập nhật</th>
+														<th scope="col">Ngày tạo</th>
+														<th scope="col">Ngày cập nhật</th>
+														<th scope="col">Trạng thái</th>
+														<th scope="col">Mô tả</th>
+														<th scope="col">Trạng thái</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -111,19 +111,19 @@
 																	pattern="dd-MM-yyyy" /></td>
 															<td><span id="_user_status_${user.id }"> <c:choose>
 																		<c:when test="${user.status }">
-																			<span>Active</span>
+																			<span>Hoạt động</span>
 																		</c:when>
 																		<c:otherwise>
-																			<span>Inactive</span>
+																			<span>Không hoạt động</span>
 																		</c:otherwise>
 																	</c:choose>
 															</span></td>
 															<td>${user.description }</td>
 															<td><a
 																href="${classpath }/admin/user/edit/${user.id }"
-																role="button" class="btn btn-primary">Edit</a> <a
+																role="button" class="btn btn-primary">Sửa</a> <a
 																href="${classpath }/admin/user/delete/${user.id }"
-																role="button" class="btn btn-secondary">Delete</a></td>
+																role="button" class="btn btn-secondary">Xóa</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>

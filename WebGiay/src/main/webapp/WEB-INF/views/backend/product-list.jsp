@@ -40,7 +40,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">List Product</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Danh sách sản phẩm</h1>
 
 					<div class="container-fluid">
 						<!-- ============================================================== -->
@@ -59,18 +59,18 @@
 										<div class="col-md-2">
 											<div class="form-group mb-4">
 												<a href="${classpath }/admin/product/add" role="button"
-													class="btn btn-primary">Add new product</a>
+													class="btn btn-primary">Thêm sản phẩm</a>
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group mb-4">
-												<h3>Total products: &nbsp ${productSearch.totalItems }</h3>
+												<h3>Số sản phẩm: &nbsp ${productSearch.totalItems }</h3>
 											</div>
 										</div>	
 										
 										<div class="col-md-6">
 											<div class="form-group mb-4">
-												<label>Current page</label>
+												<label>Trang hiện tại</label>
 												<input id="currentPage" name="currentPage" class="form-control"
 														value="${productSearch.currentPage }">
 											</div>
@@ -88,16 +88,16 @@
 			                                         -->
 			                                        <select class="form-control"
 														id="status" name="status">
-															<option value="2">All</option>
-															<option value="1">Active</option>
-															<option value="0">Inactive</option>
+															<option value="2">Tất cả</option>
+															<option value="1">Hoạt động</option>
+															<option value="0">Không hoạt động</option>
 													</select>
 												</div>
 											</div>
 											
 											<div class="col-md-2">
 												<select class="form-control" id="categoryId" name="categoryId" style="margin-right: 10px;">
-													<option value="0">Select category</option>
+													<option value="0">Tìm kiếm thể loại</option>
 													<c:forEach items="${categories }" var="category">
 														<option value="${category.id }">${category.name }</option>
 													</c:forEach>
@@ -126,23 +126,23 @@
 	                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
 	                                        <thead>
 	                                            <tr align="center">
-	                                            	<th scope="col">No.</th>
-	                                                <th scope="col">Id</th>
-	                                                <th scope="col">Category</th>
-	                                                <th scope="col">Name</th>
-	                                                <th scope="col">Price</th>
-	                                                <th scope="col">Sale price</th>
-	                                                <th scope="col">Avatar</th>
-	                                                <th scope="col">Description</th>
-	                                                <th scope="col">Details</th>
-	                                                <th scope="col">Create by</th>
-	                                                <th scope="col">Update by</th>
-	                                                <th scope="col">Create date</th>
-	                                                <th scope="col">Update date</th>
-	                                                <th scope="col">Status</th>
-	                                                <th scope="col">Is hot</th>
-	                                                <th scope="col">Seo</th>
-	                                                <th scope="col">Actions</th>
+	                                            	<th scope="col">STT</th>
+	                                                <th scope="col">Mã</th>
+	                                                <th scope="col">Thể loại</th>
+	                                                <th scope="col">Tên</th>
+	                                                <th scope="col">Giá</th>
+	                                                <th scope="col">Giá khuyến mãi</th>
+	                                                <th scope="col">Ảnh</th>
+	                                                <th scope="col">Mô tả</th>
+	                                                <th scope="col">Mô tả chi tiết</th>
+	                                                <th scope="col">Người tạo</th>
+	                                                <th scope="col">Người cập nhật</th>
+	                                                <th scope="col">Ngày tạo</th>
+	                                                <th scope="col">Ngày cập nhật</th>
+	                                                <th scope="col">Trạng thái</th>
+	                                                <th scope="col">Sản phẩm bán chạy</th>
+	                                                <th scope="col">Tối ưu hóa</th>
+	                                                <th scope="col">Hoạt động</th>
 	                                            </tr>
 	                                        </thead>
 	                                        <tbody>
@@ -176,10 +176,10 @@
 	                                                	<span id="_product_status_${product.id }">
 	                                                		<c:choose>
 	                                                			<c:when test="${product.status }">
-	                                                				<span>Active</span>
+	                                                				<span>Hoạt động</span>
 	                                                			</c:when>
 	                                                			<c:otherwise>
-	                                                				<span>Inactive</span>
+	                                                				<span>Không hoạt động</span>
 	                                                			</c:otherwise>
 	                                                		</c:choose>
 	                                                	</span>
@@ -189,10 +189,10 @@
 	                                                	<span id="_product_isHot_${product.id }">
 	                                                		<c:choose>
 	                                                			<c:when test="${product.isHot }">
-	                                                				<span>Yes</span>
+	                                                				<span>Đúng</span>
 	                                                			</c:when>
 	                                                			<c:otherwise>
-	                                                				<span>No</span>
+	                                                				<span>Sai</span>
 	                                                			</c:otherwise>
 	                                                		</c:choose>
 	                                                	</span>
@@ -200,9 +200,9 @@
 	                                               	<td>${product.seo }</td>
 	                                                <td>
 	                                                	<a href="${classpath }/admin/product/edit/${product.id }" role="button" 
-	                                                							class="btn btn-primary">Edit</a>
+	                                                							class="btn btn-primary">Sửa</a>
 	                                                	<a href="${classpath }/admin/product/delete/${product.id }" role="button" 
-	                                                							class="btn btn-secondary">Delete</a>
+	                                                							class="btn btn-secondary">Xóa</a>
 	                                                </td>
 	                                            </tr>
 	                                            </c:forEach>

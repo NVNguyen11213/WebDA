@@ -227,9 +227,9 @@
                     </div>
                     <div class="block-product">
                         <div class="row">
-                        <c:forEach items="${products }" var="product">
+                        <c:forEach items="${products }" var="product" varStatus="loop">
                             <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                                <a href="${classpath }/product-detail/${product.id}">
+                                <div class = "pro">
                                     <div class="card">
                                         <div class="btn-action">
                                             <a href="" title="Sản phẩm yêu thích">
@@ -253,17 +253,36 @@
                                             </div>
                                         </div>
                                         <div class="images">
+                                        <a href="${classpath }/product-detail/${product.id}"></a>
                                             <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="...">
                                         </div>
+                                        <c:if test="${product.salePrice > 0}">
+								<div class="sale-flash">
+									<fmt:formatNumber
+										value="${discountsForAllProducts[loop.index] * -1}"
+										type="number" pattern="#,##0'%'" />
+								</div>
+							</c:if>
                                         <div class="card-body">
                                           <h3 class="card-title"><a href="${classpath }/product-detail/${product.id}">${product.name }</a></h3>
                                           <!-- <span class="brand">Niken</span> -->
                                           <div class="bottom-action">
-                                            <div class="price-box">${product.price }</div>
-                                          </div>
+													<c:choose>
+														<c:when test="${product.salePrice > 0}">
+															<span class="price-box"><fmt:formatNumber
+																	value="${product.salePrice}" pattern="#,##0₫" /> </span>
+															<span class="old-price"><fmt:formatNumber
+																	value="${product.price}" pattern="#,##0₫" /> </span>
+														</c:when>
+														<c:otherwise>
+															<span class="price-box"><fmt:formatNumber
+																	value="${product.price}" pattern="#,##0₫" /> </span>
+														</c:otherwise>
+													</c:choose>
+												</div>
                                         </div>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                             </c:forEach>
                         <div class="view-more">
@@ -282,9 +301,9 @@
                     </div>
                     <div class="block-product">
                         <div class="row">
-                        <c:forEach items="${isHotProducts }" var="product">
+                        <c:forEach items="${isHotProducts }" var="product" varStatus="loop">
                             <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-                                <a href="${classpath }/product-detail/${product.id}">
+                                <div class = "pro">
                                     <div class="card">
                                         <div class="btn-action">
                                             <a href="" title="Sản phẩm yêu thích">
@@ -308,17 +327,36 @@
                                             </div>
                                         </div>
                                         <div class="images">
+                                        <a href="${classpath }/product-detail/${product.id}"></a>
                                             <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="...">
                                         </div>
+                                        <c:if test="${product.salePrice > 0}">
+								<div class="sale-flash">
+									<fmt:formatNumber
+										value="${discountsForAllProducts[loop.index] * -1}"
+										type="number" pattern="#,##0'%'" />
+								</div>
+							</c:if>
                                         <div class="card-body">
                                           <h3 class="card-title"><a href="${classpath }/product-detail/${product.id}">${product.name }</a></h3>
                                           <!-- <span class="brand">Niken</span> -->
                                           <div class="bottom-action">
-                                            <div class="price-box">${product.price }</div>
-                                          </div>
+													<c:choose>
+														<c:when test="${product.salePrice > 0}">
+															<span class="price-box"><fmt:formatNumber
+																	value="${product.salePrice}" pattern="#,##0₫" /> </span>
+															<span class="old-price"><fmt:formatNumber
+																	value="${product.price}" pattern="#,##0₫" /> </span>
+														</c:when>
+														<c:otherwise>
+															<span class="price-box"><fmt:formatNumber
+																	value="${product.price}" pattern="#,##0₫" /> </span>
+														</c:otherwise>
+													</c:choose>
+												</div>
                                         </div>
                                     </div>
-                                </a>
+                                    </div>
                             </div>
                             </c:forEach>
                     </div>

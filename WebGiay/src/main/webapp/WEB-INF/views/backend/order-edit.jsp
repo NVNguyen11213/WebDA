@@ -51,7 +51,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">Edit Order</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Sửa đơn hàng</h1>
 
 					<div class="container-fluid">
 						<!-- ============================================================== -->
@@ -73,7 +73,7 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group mb-4">
-															<label for="code">Code</label>
+															<label for="code">Mã đơn hàng</label>
 															<sf:input path="code" type="text" class="form-control"
 																id="code" name="code" placeholder="Code" readonly="true"></sf:input>
 														</div>
@@ -81,7 +81,7 @@
 
 													<div class="col-md-6">
 														<div class="form-group mb-4">
-															<label for="customerName">Customer Name</label>
+															<label for="customerName">Tên khách hàng</label>
 															<sf:input path="customerName" type="text"
 																class="form-control" id="customerName"
 																name="customerName" placeholder="Customer Name" readonly="true"></sf:input>
@@ -92,7 +92,7 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group mb-4">
-															<label for="customerMobile">Customer Mobile</label>
+															<label for="customerMobile">Số điện thoại khách hàng</label>
 															<sf:input path="customerMobile" type="number"
 																 id="customerMobile"
 																name="customerMobile" class="form-control"
@@ -102,7 +102,7 @@
 
 													<div class="col-md-6">
 														<div class="form-group mb-4">
-															<label for="customerAddress">Customer Address</label>
+															<label for="customerAddress">Địa chỉ khách hàng</label>
 															<sf:input path="customerAddress" type="text"
 																autocomplete="off" id="customerAddress"
 																name="customerAddress" class="form-control"
@@ -114,7 +114,7 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group mb-4">
-															<label for="total">Payment</label>
+															<label for="total">Tiền</label>
 															<sf:input path="total" type="number" autocomplete="off"
 																id="total" name="total" class="form-control"
 																placeholder="total" readonly="true"></sf:input>
@@ -123,7 +123,7 @@
 
 													<div class="col-md-6">
 														<div class="form-group mb-4">
-															<label for="saleOrder">Create by</label>
+															<label for="saleOrder">Người tạo</label>
 															<sf:select path="userCreateSaleOrder.id"
 																class="form-control" id="userCreateSaleOrder">
 																<sf:options items="${users }" itemValue="id"
@@ -138,7 +138,7 @@
 												<div class="row">
 													<div class="col-md-6">
 														<div class="form-group mb-4">
-															<label for="createDate">Create date</label>
+															<label for="createDate">Ngày tạo</label>
 
 															<sf:input path="createDate" class="form-control"
 																type="date" id="createDate" name="createDate"></sf:input>
@@ -147,7 +147,7 @@
 
 													<div class="col-md-6">
 														<div class="form-group mb-4">
-															<label for="updatedate">Delivery date</label>
+															<label for="updatedate">Ngày giao hàng</label>
 
 															<sf:input path="updateDate" class="form-control"
 																type="date" id="updateDate" name="updateDate"></sf:input>
@@ -171,9 +171,8 @@
 														<div class="form-group mb-4">
 															<a href="${classpath }/admin/order/list"
 																class="btn btn-secondary active" role="button"
-																aria-pressed="true"> Back to list </a>
-															<button type="submit" class="btn btn-primary">Save
-																edit order</button>
+																aria-pressed="true"> Quay lại danh sách </a>
+															<button type="submit" class="btn btn-primary">Lưu đơn hàng</button>
 														</div>
 													</div>
 												</div>

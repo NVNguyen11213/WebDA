@@ -47,7 +47,7 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h1 mb-3" style="font-weight: 700;">List Role</h1>
+					<h1 class="h1 mb-3" style="font-weight: 700;">Danh sách quyền</h1>
 
 					<div class="container-fluid">
 						<!-- ============================================================== -->
@@ -58,52 +58,14 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-body">
-										<div class="row">
-											<!-- Column -->
-											<div class="col-md-6 col-lg-3 col-xlg-3">
-												<div class="card card-hover">
-													<div class="p-2 bg-primary text-center">
-														<h1 class="font-light text-white">${roleSearch.totalItems }</h1>
-														<h6 class="text-white">Total Roles</h6>
-													</div>
-												</div>
-											</div>
-											<!-- Column -->
-											<div class="col-md-6 col-lg-3 col-xlg-3">
-												<div class="card card-hover">
-													<div class="p-2 bg-info text-center">
-														<h1 class="font-light text-white">1,738</h1>
-														<h6 class="text-white">Responded</h6>
-													</div>
-												</div>
-											</div>
-											<!-- Column -->
-											<div class="col-md-6 col-lg-3 col-xlg-3">
-												<div class="card card-hover">
-													<div class="p-2 bg-success text-center">
-														<h1 class="font-light text-white">1100</h1>
-														<h6 class="text-white">Resolve</h6>
-													</div>
-												</div>
-											</div>
-											<!-- Column -->
-											<div class="col-md-6 col-lg-3 col-xlg-3">
-												<div class="card card-hover">
-													<div class="p-2 bg-danger text-center">
-														<h1 class="font-light text-white">964</h1>
-														<h6 class="text-white">Pending</h6>
-													</div>
-												</div>
-											</div>
-											<!-- Column -->
-										</div>
+										
 										<div class="table-responsive">
 
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group mb-4">
 														<a href="${classpath }/admin/role/add" role="button"
-															class="btn btn-primary">Add New Role</a>
+															class="btn btn-primary">Thêm quyền mới</a>
 													</div>
 												</div>
 											</div>
@@ -111,16 +73,16 @@
 												class="table table-striped table-bordered no-wrap">
 												<thead>
 													<tr>
-														<th scope="col">No.</th>
-														<th scope="col">Id</th>
-														<th scope="col">Name</th>
-														<th scope="col">Create by</th>
-														<th scope="col">Update by</th>
-														<th scope="col">Create date</th>
-														<th scope="col">Update date</th>
-														<th scope="col">Status</th>
-														<th scope="col">Description</th>
-														<th scope="col">Action</th>
+														<th scope="col">STT</th>
+														<th scope="col">Mã</th>
+														<th scope="col">Tên</th>
+														<th scope="col">Người tạo</th>
+														<th scope="col">Người cập nhật</th>
+														<th scope="col">Ngày tạo</th>
+														<th scope="col">Ngày cập nhật</th>
+														<th scope="col">Trạng thái</th>
+														<th scope="col">Mô tả</th>
+														<th scope="col">Hoạt động</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -139,9 +101,9 @@
 															<td>${role.description }</td>
 															<td><a
 																href="${classpath }/admin/role/edit/${role.id }"
-																role="button" class="btn btn-primary">Edit</a> <a
+																role="button" class="btn btn-primary">Sửa</a> <a
 																href="${classpath }/admin/role/delete/${role.id }"
-																role="button" class="btn btn-secondary">Delete</a></td>
+																role="button" class="btn btn-secondary">Xóa</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>

@@ -57,6 +57,7 @@
                             <div class="swiper-container gallery-top margin-bottom-10" id="lightgallery">
                                 <div class="swiper-wrapper">
                                 <c:forEach items="${productImages }" var="productImage">
+                                
                                     <a href="" class="swiper-slide 0" data-hash="0" title="">
                                         <img class="img-responsive mx-auto d-block lazy loading"  width="340px" height="340px" src="${classpath }/FileUploads/${productImage.path }" width="100%" class="small-img"
 										alt="">
@@ -71,10 +72,20 @@
                             <h1 class="title-head">${product.name }</h1>
                             <div class="group-power">
                                 <div class="price-box clearfix">
-                                    <div class="special-price">
-                                        <span class="price product-price">${product.price }</span>
-                                        <sup>vnd</sup>
-                                    </div>
+                                    <div class="bottom-action">
+													<c:choose>
+														<c:when test="${product.salePrice > 0}">
+															<span class="price-box"><fmt:formatNumber
+																	value="${product.salePrice}" pattern="#,##0₫" /> </span>
+															<span class="old-price"><fmt:formatNumber
+																	value="${product.price}" pattern="#,##0₫" /> </span>
+														</c:when>
+														<c:otherwise>
+															<span class="price-box"><fmt:formatNumber
+																	value="${product.price}" pattern="#,##0₫" /> </span>
+														</c:otherwise>
+													</c:choose>
+												</div>
                                 </div>
                             </div>
                             <form enctype="multipart/form-data" id="add-to-cart-form" action="/cart/add" class="wishItem" method="post">

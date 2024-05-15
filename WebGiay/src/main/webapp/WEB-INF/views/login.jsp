@@ -82,10 +82,6 @@
                                             <div class="pull-xs-left text-center">
                                                 <button class="btn btn-style btn-blues" type="submit" value="Đăng nhập">&nbspĐăng nhập&nbsp</button>
                                             </div>
-                                            <p class="login--notes">
-                                                ND Shoes cam kết bảo mật và sẽ không bao giờ đăng <br>
-                                                hay chia sẻ thông tin mà chưa có được sự đồng ý của bạn.
-                                            </p>
                                         </div>
                                     </form>
                                     <div class="clearfix"></div>
