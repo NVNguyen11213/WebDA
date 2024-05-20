@@ -573,9 +573,9 @@ svg {
     min-width: 40px !important;
     height: 40px !important;
     padding: initial;
-    line-height: 38px;
+    line-height: 27px;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 15px;
     padding: 0 5px;
 }
 .swatch label {

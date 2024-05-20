@@ -10,7 +10,7 @@ public class ProductCart {
 	private String productName;
 	private String avatar;
 	private BigDecimal price;
-	//private String size;
+	private String size;
 	
 	// phương thức tính tổng price
 	public BigDecimal totalPrice() {
@@ -24,7 +24,7 @@ public class ProductCart {
 		super();
 	}
 
-	public ProductCart(int productId, BigInteger quantity, String productName, String avatar, BigDecimal price
+	public ProductCart(int productId, BigInteger quantity, String productName, String avatar, BigDecimal price, String size
 			) {
 		super();
 		this.productId = productId;
@@ -32,7 +32,7 @@ public class ProductCart {
 		this.productName = productName;
 		this.avatar = avatar;
 		this.price = price;
-		//this.size = size;
+		this.size = size;
 	}
 
 	public int getProductId() {
@@ -75,12 +75,12 @@ public class ProductCart {
 		this.price = price;
 	}
 
-//	public String getSize() {
-//		return size;
-//	}
-//
-//	public void setSize(String size) {
-//		this.size = size;
-//	}
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
 	
 }

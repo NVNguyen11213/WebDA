@@ -2,10 +2,10 @@ package webgiay.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +66,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 			String path = FOLDER_UPLOAD + "Product/Avatar/" + avatarFile.getOriginalFilename();
 			File file = new File(path);
 			avatarFile.transferTo(file);
-			// Lưu đư�?ng dẫn vào bảng tbl_product
+			// Lưu đường dẫn vào bảng tbl_product
 			product.setAvatar("Product/Avatar/" + avatarFile.getOriginalFilename());
 		}
 
@@ -114,7 +114,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 			path = FOLDER_UPLOAD + "Product/Avatar/" + avatarFile.getOriginalFilename();
 			file = new File(path);
 			avatarFile.transferTo(file);
-			// Lưu đư�?ng dẫn của avatar mới vào bảng tbl_product
+			// Lưu đường dẫn của avatar mới vào bảng tbl_product
 			product.setAvatar("Product/Avatar/" + avatarFile.getOriginalFilename());
 		} else { // Ngư�?i dùng không upload avatar file
 			// giữ nguyên avatar cũ
@@ -131,7 +131,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 					File file = new File(path);
 					imageFile.transferTo(file);
 					
-					// Lưu đư�?ng dẫn vào tbl_product_image
+					// Lưu đường dẫn vào tbl_product_image
 					Product_image product_image = new Product_image();
 					product_image.setTitle(imageFile.getOriginalFilename());
 					product_image.setPath("Product/Image/" + imageFile.getOriginalFilename());
@@ -257,7 +257,7 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 			}
 		}
 		
-		// Sắp xếp sản phẩm theo tùy ch�?n
+		// Sắp xếp sản phẩm theo tùy
 		if (searchModel.getSortOption() != null && !searchModel.getSortOption().isEmpty()) {
 			switch (searchModel.getSortOption()) {
 			case "nameASC": // Sắp xếp theo tên tăng dần
@@ -280,30 +280,13 @@ public class ProductService extends BaseService<Product> implements Jw27Constant
 		return super.executeNativeSql(sql);
 	}
 
-//	public List<Product> findByPriceRange(String[] priceRanges) {
-//		// Tạo câu lệnh SQL
-//		StringBuilder sql = new StringBuilder("SELECT * FROM tbl_product p WHERE 1=1 AND p.status=1");
-//
-//		// Tạo danh sách các giá trị mức giá được ch�?n
-//		List<String> selectedPriceRanges = new ArrayList<>();
-//		for (String priceRange : priceRanges) {
-//			selectedPriceRanges.add(priceRange);
-//		}
-//
-//		// Thêm các đi�?u kiện vào câu lệnh SQL dựa trên các mức giá được ch�?n
-//		for (String selectedPriceRange : selectedPriceRanges) {
-//			String[] priceRangeValues = selectedPriceRange.split("-");
-//			if (priceRangeValues.length == 2) {
-//				// Nếu mức giá là khoảng, thêm đi�?u kiện BETWEEN vào câu lệnh SQL
-//				sql.append(" AND p.price BETWEEN ").append(priceRangeValues[0]).append(" AND ")
-//						.append(priceRangeValues[1]);
-//			} else if (priceRangeValues.length == 1) {
-//				// Nếu mức giá là một giá trị cụ thể, thêm đi�?u kiện = vào câu lệnh SQL
-//				sql.append(" AND p.price >= ").append(priceRangeValues[0]);
-//			}
-//		}
-//
-//		return super.executeNativeSql(sql.toString());
-//	}
+	public List<String> getSizesForProduct(int productId) {
+		String sql = "SELECT size FROM tbl_product WHERE id = :productId";
+		Query query = entityManager.createNativeQuery(sql);
+		query.setParameter("productId", productId);
+		@SuppressWarnings("unchecked")
+		List<String> sizes = query.getResultList();
+		return sizes;
+	}
 
 }

@@ -27,6 +27,11 @@
 	<!-- Custome css resource file -->
     <jsp:include page="/WEB-INF/views/backend/layout/css.jsp"></jsp:include>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<style>
+		.animate .flatpickr-innerContainer{
+    		display:block !important;
+   		}
+	</style>
 </head>
 
 <body>
@@ -97,12 +102,12 @@
 
 													<div class="col-auto">
 														<div class="stat text-primary">
-															<i class="align-middle" data-feather="dollar-sign"></i>
+															<i class="align-middle"> VND</i>
 														</div>
 													</div>
 												</div>
 												<h1 class="mt-1 mb-3"><fmt:formatNumber value="${totalSales }"
-																			minFractionDigits="0" /> VND</h1>
+																			minFractionDigits="0" /></h1>
 												<!-- <div class="mb-0">
 													<span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
 													<span class="text-muted">Since last week</span>

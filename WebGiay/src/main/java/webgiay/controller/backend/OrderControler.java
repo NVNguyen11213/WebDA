@@ -135,21 +135,6 @@ public class OrderControler extends BaseController implements Jw27Constants {
 		saleOrderSearch.setSizeOfPage(SIZE_OF_PRODUCT); // So ban ghi tren 1 trang
 		saleOrderSearch.setTotalItems(allSaleOrders.size()); // Tong so san pham theo tim kiem
 
-//		List<SaleOrder> saleOrders = saleOrderService.searchOrder(searchOrderSearch);
-		// �?ảm bảo rằng ngày tạo không phải là null
-//		for (SaleOrder saleOrder : allSaleOrders) {
-//			if (saleOrder.getCreateDate() == null) {
-//				saleOrder.setCreateDate(new Date());
-//			
-//			}
-//			saleOrderService.saveOrder(saleOrder);
-//			
-//			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//			if (authentication != null && authentication.getPrincipal() instanceof User) {
-//			    User user = (User) authentication.getPrincipal();
-//			    saleOrder.setUserCreateSaleOrder(user);
-//			}
-//		}
 		
 		// Tính tổng doanh số bán hàng
 		BigDecimal totalSales = BigDecimal.ZERO;

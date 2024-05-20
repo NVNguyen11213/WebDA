@@ -22,6 +22,9 @@ public class Product extends BaseModel {
 
 	@Column(name = "avatar", length = 300, nullable = true)
 	private String avatar;
+	
+	@Column(name = "product_quantity", nullable = true)
+	private Integer productQuantity;
 
 	@Column(name = "price", nullable = true)
 	private BigDecimal price;
@@ -40,6 +43,9 @@ public class Product extends BaseModel {
 
 	@Column(name = "seo", length = 1000, nullable = true)
 	private String seo;
+	
+	@Column(name = "size", length = 50, nullable = true)
+	private String size;
 
 	private String sortBy;
 
@@ -96,19 +102,21 @@ public class Product extends BaseModel {
 		super();
 	}
 
-	public Product(Integer id, Date createDate, Date updateDate, Boolean status, String name, String avatar,
+	public Product(Integer id, Date createDate, Date updateDate, Boolean status, String name, String avatar,int productQuantity,
 			BigDecimal price, BigDecimal salePrice, String shortDescription, String detailDescription, Boolean isHot,
-			String seo, String sortBy, Category category, User userCreateProduct, User userUpdateProduct,
+			String seo,String size, String sortBy, Category category, User userCreateProduct, User userUpdateProduct,
 			Set<Product_image> product_images, Set<SaleOrderProduct> saleOrderProducts) {
 		super(id, createDate, updateDate, status);
 		this.name = name;
 		this.avatar = avatar;
+		this.productQuantity = productQuantity;
 		this.price = price;
 		this.salePrice = salePrice;
 		this.shortDescription = shortDescription;
 		this.detailDescription = detailDescription;
 		this.isHot = isHot;
 		this.seo = seo;
+		this.size = size;
 		this.sortBy = sortBy;
 		this.category = category;
 		this.userCreateProduct = userCreateProduct;
@@ -133,6 +141,14 @@ public class Product extends BaseModel {
 		this.avatar = avatar;
 	}
 
+	public Integer getProductQuantity() {
+		return productQuantity;
+	}
+
+	public void setProductQuantity(Integer productQuantity) {
+		this.productQuantity = productQuantity;
+	}
+	
 	public BigDecimal getPrice() {
 		return price;
 	}
@@ -179,6 +195,13 @@ public class Product extends BaseModel {
 
 	public void setSeo(String seo) {
 		this.seo = seo;
+	}
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
 	}
 
 	public String getSortBy() {

@@ -75,6 +75,24 @@
 										</div>
 										
 										<div class="row">
+													<div class="col-md-6">
+														<div class="form-group mb-4">
+															<label for="productQuantity">Số lượng</label>
+															<sf:input path="productQuantity" type="number" class="form-control"
+																id="productQuantity" name="productQuantity" placeholder="product quantity"></sf:input>
+														</div>
+													</div>
+													
+													<div class="col-md-6">
+														<div class="form-group mb-4">
+															<label for="size">Size</label>
+															<sf:input path="size" type="text" id="size" name="size"
+																class="form-control" placeholder="Size"></sf:input>
+														</div>
+													</div>
+												</div>
+												
+										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
 			                                        <label for="price">Giá</label>

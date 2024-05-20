@@ -67,8 +67,8 @@
                                                 <div class="grid__item cart_info">
                                                     <div class="ajaxcart__product-name-wrapper cart_name">
                                                         <a href="" class="ajaxcart__product-name h4" title="">${item.productName }</a>
-                                                        <span class="ajaxcart__product-meta variant-title">Đen / 40</span>
-                                                        <a href="${classpath }/product-cart-delete/${item.productId}" class="cart__btn-remove remove-item-cart ajaxifyCart--remove">Xóa</a>
+                                                        <span class="ajaxcart__product-meta variant-title">${item.size }</span>
+                                                        <a href="${classpath }/product-cart-delete/${item.productId}/${item.size}" class="cart__btn-remove remove-item-cart ajaxifyCart--remove">Xóa</a>
                                                     </div>
                                                     <div class="grid">
                                                         <div class="grid__item one-half text-right cart_prices">
@@ -80,12 +80,12 @@
                                                         <div class="grid__item one-half cart_select">
                                                             <div class="ajaxcart__qty input-group-btn">
                                                                 <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" 
-                                                                onclick="updateProductQuantity(${item.productId }, -1)" value="-"
+                                                                onclick="updateProductQuantity(${item.productId }, -1, '${item.size}')" value="-"
                                                                 >-</button>
                                                                 <input type="text" name="update[]" class="ajaxcart__qty-num number-sidebar" id="productQuantity_${item.productId}" value="${item.quantity}"
                                                                 data-line="1" aria-label="quantity" maxlength="3">
                                                                 <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count" 
-                                                                onclick="updateProductQuantity(${item.productId }, 1)" value="+"
+                                                                onclick="updateProductQuantity(${item.productId }, 1, '${item.size}')" value="+"
                                                                 >+</button>
                                                             </div>
                                                         </div>
@@ -224,10 +224,11 @@
     <script src="${classpath }/frontend/js/index.js"></script>
     
     	<script type="text/javascript">
-		updateProductQuantity = function(_productId, _quantity) {
+		updateProductQuantity = function(_productId, _quantity, _size) {
 			let data = {
 				productId : _productId, //lay theo id
-				quantity : _quantity
+				quantity : _quantity,
+				size: _size
 			};
 
 			//$ === jQuery

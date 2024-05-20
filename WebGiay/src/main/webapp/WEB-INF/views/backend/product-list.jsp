@@ -130,6 +130,8 @@
 	                                                <th scope="col">Mã</th>
 	                                                <th scope="col">Thể loại</th>
 	                                                <th scope="col">Tên</th>
+	                                                <th scope="col">số lượng</th>
+	                                                <th scope="col">Size</th>
 	                                                <th scope="col">Giá</th>
 	                                                <th scope="col">Giá khuyến mãi</th>
 	                                                <th scope="col">Ảnh</th>
@@ -152,6 +154,8 @@
 	                                                <td>${product.id }</td>
 	                                                <td>${product.category.name }</td>
 	                                                <td>${product.name }</td>
+	                                                <td align="right">${product.productQuantity }</td>
+	                                                <td>${product.size }</td>
 	                                                <td align="right">
 	                                                	<fmt:formatNumber value="${product.price }" minFractionDigits="0"></fmt:formatNumber>
 	                                                </td>

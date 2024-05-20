@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Cart {
 
 	private List<ProductCart> productCarts = new ArrayList<ProductCart>();
@@ -25,14 +26,16 @@ public class Cart {
 		return total;
 	}
 	
-	public int findProductById(int id) {
-		for (int index = 0; index < productCarts.size(); index++) {
-			if (productCarts.get(index).getProductId() == id) {
-				return index;
-			}
+	// Tìm sản phẩm trong giỏ hàng theo ID sản phẩm và kích thước
+		public int findProductByIdAndSize(int productId, String size) {
+		    for (int index = 0; index < productCarts.size(); index++) {
+		        ProductCart productCart = productCarts.get(index);
+		        if (productCart.getProductId() == productId && productCart.getSize().equals(size)) {
+		            return index;
+		        }
+		    }
+		    return -1;
 		}
-		return -1;
-	}
 
 	public Cart() {
 		super();
