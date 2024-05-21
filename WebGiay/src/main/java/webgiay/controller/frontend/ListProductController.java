@@ -93,14 +93,11 @@ public class ListProductController extends BaseController implements Jw27Constan
 		List<Category> categories = categoryService.findAll();
 		model.addAttribute("categories", categories);
 		
-		List<Product> SaleProducts = productService.findAllActiveAndPromotion();
-		model.addAttribute("SaleProducts", SaleProducts);
-		model.addAttribute("discountsForAllProducts", calculateDiscounts(SaleProducts));
 		
 //		List<Product> products = productService.searchProductInHome(searchModel);
 		model.addAttribute("products", products);
 		model.addAttribute("searchModel", searchModel);
-		
+		model.addAttribute("discountsForAllProducts", calculateDiscounts(products));
 		return "frontend/allproduct";
 	}
 

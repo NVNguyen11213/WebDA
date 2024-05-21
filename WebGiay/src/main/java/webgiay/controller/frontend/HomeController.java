@@ -102,6 +102,7 @@ public class HomeController extends BaseController implements Jw27Constants {
 		// List<Product> products = productService.searchProduct(productSearch);
 		model.addAttribute("products", products);
 		model.addAttribute("productSearch", searchProduct);
+		model.addAttribute("discountsForAllProducts", calculateDiscounts(products));
 
 		return "frontend/index"; // --> Brownser
 	}
