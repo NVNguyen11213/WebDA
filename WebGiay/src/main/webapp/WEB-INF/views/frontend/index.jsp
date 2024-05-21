@@ -252,9 +252,9 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="images">
+                                        <div class="images" style="height:200px">
                                         <a href="${classpath }/product-detail/${product.id}"></a>
-                                            <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="...">
+                                            <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="..." style="height: 100%">
                                         </div>
                                         <c:if test="${product.salePrice > 0}">
 								<div class="sale-flash">
@@ -326,9 +326,9 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="images">
+                                        <div class="images" style="height:200px">
                                         <a href="${classpath }/product-detail/${product.id}"></a>
-                                            <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="...">
+                                            <img src="${classpath }/FileUploads/${product.avatar }" class="card-img-top card-img" alt="..." style="height: 100%">
                                         </div>
                                         <c:if test="${product.salePrice > 0}">
 								<div class="sale-flash">

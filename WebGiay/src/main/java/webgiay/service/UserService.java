@@ -89,14 +89,7 @@ public class UserService extends BaseService<User> implements Jw27Constants{
 		}
 		return super.saveOrUpdate(user);
 	}
-	// Giữ nguyên mật khẩu của người dùng trong cơ sở dữ liệu
-//    user.setPassword(dbUser.getPassword());
-//    user.setUsername(dbUser.getUsername());
-//    user.setCreateDate(dbUser.getCreateDate());
-//    user.setUpdateDate(dbUser.getUpdateDate());
-//    user.setDescription(dbUser.getDescription());
-//    user.setUserCreateUser(dbUser.getUserCreateUser());
-//    user.setUserUpdateUser(dbUser.getUserUpdateUser());
+
 	@Transactional
 	public User saveProfile(User user, MultipartFile avatarFile)
 			throws IOException {

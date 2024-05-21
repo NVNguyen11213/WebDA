@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${classpath }/frontend/css/contact.css">
+    <link rel="stylesheet" href="${classpath }/frontend/css/demo.css">
     <link rel="stylesheet" href="${classpath }/frontend/bootstrap/bootstrap.min.css">
     <title>${title }</title>
 </head>
@@ -57,26 +58,21 @@
                     </div>
                     <div class="wpcf7" id="wpcf7-f8-p23-o1">
                         <form action="/lien-he#wpcf7-f8-p23-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-                            <div class="form-flat">
-                                <span class="wpcf7-form-control-wrap your-name">
-                                    <input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="họ và tên">
-                                </span>
-                                <p></p>
-                                <p>
-                                    <span class="wpcf7-form-control-wrap your-email">
-                                        <input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="email">
-                                    </span> 
-                                </p>
-                                <p>
-                                    <span class="wpcf7-form-control-wrap your-message">
-                                        <textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="lời nhắn"></textarea>
-                                    </span> 
-                                </p>
-                                <p>
-                                    <input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit button">
-                                    <span class="ajax-loader"></span>
-                                </p>
-                            </div>
+                            <div class="col-12 col-md-6 col-lg-8">
+							<form action="/contact-send" method="post">
+								<input type="text" placeholder="Your name" 
+									id="txtName" name="txtName" value="${loginedUser.name }"/> 
+								<input type="email" placeholder="Email" 
+									id="txtEmail" name="txtEmail" value="${loginedUser.email }"/> 
+								<input type="text" placeholder="Your mobile" 
+									id="txtMobile" name="txtMobile" value="${loginedUser.mobile }"/> 
+								<input type="text" placeholder="Your address" 
+									id="txtAddress" name="txtAddress" value="${loginedUser.address }"/>
+								<textarea cols="30" rows="10" placeholder="Your Message" 
+									id="txtMessage" name="txtMessage"></textarea>
+								<button type="button" class="normal" onclick="_notification()">Gửi</button>
+							</form>
+						</div>
                             <div class="wpcf7-response-output wpcf7-display-none"></div>
                         </form>
                     </div>
@@ -90,5 +86,52 @@
     <script src="${classpath }/frontend/bootstrap/popper.min.js"></script>
     <script src="${classpath }/frontend/bootstrap/bootstrap.min.js"></script>
     <script src="${classpath }/frontend/js/index.js"></script>
+    
+   <script type="text/javascript">
+		function _notification() {
+			//javascript object
+			let data = {
+				
+				txtName : jQuery("#txtName").val(),
+				txtEmail : jQuery("#txtEmail").val(), //Get by Id
+				txtMobile : jQuery("#txtMobile").val(),
+				txtAddress : jQuery("#txtAddress").val(),
+				txtMessage : jQuery("#txtMessage").val(),
+				
+			};
+			
+			//$ === jQuery
+			jQuery.ajax({
+				url : "/contact-send",
+				type : "POST",
+				contentType: "application/json",
+				data : JSON.stringify(data),
+				dataType : "json", //Kieu du lieu tra ve tu controller la json
+				
+				success : function(jsonResult) {
+					//alert(jsonResult.code + ": " + jsonResult.message);
+					//$("#notification").html(jsonResult.message);
+					// Xóa các giá trị trong các trường của form	
+					if (jsonResult.errorMessage) {
+		                $('.toast-body-error').html(jsonResult.errorMessage);
+		                $('.toast-error').toast('show');
+		            } else {
+		                $('.toast-body-success').html(jsonResult.message);
+		                $('.toast-success').toast('show');
+		                $('#txtName').val('');
+						$('#txtMobile').val('');
+						$('#txtEmail').val('');
+						$('#txtAddress').val('');
+						$('#txtMessage').val('');
+		            }
+				},
+				
+				error : function(jqXhr, textStatus, errorMessage) {
+					 $('.toast-body-error').html('Đã có lỗi xảy ra: ' + errorMessage);
+			         $('.toast-error').toast('show');
+				}
+			});
+		}
+	</script>
 </body>
 </html>

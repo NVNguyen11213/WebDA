@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -107,8 +108,11 @@ public class UserController extends BaseController implements Jw27Constants{
 	// Cách đẩy 1 dữ liệu sang view
 	public String addSave(final Model model, @ModelAttribute("user") User user) {
 
-		user.setPassword(FOLDER_UPLOAD);
-
+		Role role = roleService.getRoleByName("admin");
+		String rawPassword = user.getPassword();
+	    String encodedPassword = new BCryptPasswordEncoder(4).encode(rawPassword);
+	    user.setPassword(encodedPassword);
+	    user.addRelationalUserRole(role);
 		userService.saveOrUpdate(user);
 		return "redirect:/admin/user/add";
 	}

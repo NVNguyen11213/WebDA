@@ -600,7 +600,12 @@ img {
     position: relative;
     overflow: hidden;
 }
-
+.card .image{
+	height: 200px;
+}
+.image .card-img{
+	height: 100%;
+}
 .images:hover .image-overlay {
     opacity: 1;
 }
